@@ -399,6 +399,293 @@ NO ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 ------------------------------------------------------------------------USE-CASE-12-----------------------------------------------------------------------
 
+\# Use Case Description
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+
+
+**Use Case Name: Track total time online **
+
+**Date: 4/4/21**
+
+ 
+
+\## Summary
+
+The software will track the total amount of time the user is logged in on the application, this will then be shown to the users a total number and as a graph that is broken down into what day of the week they were spent 
+
+ 
+
+\## Actors
+
+1. Software
+
+2. User
+
+   
+
+ 
+
+\## Preconditions
+
+User can create an account
+
+
+
+ 
+
+\## Triggers
+
+When user logs in 
+
+ 
+
+\## Primary Sequence
+
+1. User Logs in 
+
+2. Software begins tracking how long they are logged in till they log off 
+
+   
+
+ 
+
+\## Primary Postconditions
+
+* total time spent logged in is saved by the software to that User
+
+\*  A graph is made showing the user their usage across the week 
+
+---------------------------------------------------------------------Usecase 13---------------------------------------------------------------------------------------
+
+***\*Product Name:\**** Task Managerinator
+
+
+
+**Problem Statement:** The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+
+
+
+
+***\*Use Case Name:\**** Restrict Task Deletion 
+
+
+
+***\*Date:\**** 4/4
+
+
+
+ 
+
+
+
+**## Summary**
+
+
+
+Deleting or comleting a task should be restricted to caertain users who have the correct permissions in order to make sure not anyone can set a task as done or deleted, making things easier to manage 
+
+
+
+ 
+
+
+
+**## Actors**
+
+
+
+actor 1: System
+
+
+
+  
+
+
+
+**## Preconditions**
+
+
+
+precond 1:  users have accounts
+
+precond 2: projects are working
+
+precond 3: tasks can be created 
+
+
+
+
+
+**## Triggers**
+
+
+
+when user tries to delete or complete a task 
+
+
+
+ 
+
+
+
+**## Primary Sequence**
+
+
+
+\1. User clicks on task
+
+\2. user clicks on a button to delete tasks 
+
+\3. it works depending on whether the user has the right permissions 
+
+
+
+ 
+
+
+
+**## Primary Postconditions**
+
+
+
+\1. Task still exists or is deleted depending on if the user has the right permissions 
+
+-----Use Case 14
+
+\# Use Case Description
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+
+
+**Use Case Name: User can split tasks in subtasks 
+
+**Date: 4/4/21**
+
+ 
+
+\## Summary
+
+A task can be further split into sub tasks that can be assigned to users
+
+ 
+
+\## Actors
+
+1. Software
+
+2. User
+
+   
+
+ 
+
+\## Preconditions
+
+User can create an account
+
+Users can create tasks 
+
+
+
+ 
+
+\## Triggers
+
+When a user tries to create subtasks
+
+When a user creates a task 
+
+ 
+
+\## Primary Sequence
+
+1. User creates task
+
+2. user can now create subtasks within the task and assign it to other people 
+
+   
+
+ 
+
+\## Primary Postconditions
+
+* subtasks are now shown and can bea signed to other users
+
+##Alternate sequence
+
+- User clicks on task 
+- user can now add subtasks that are displayed underneath the task 
+
+--------------------------------------------------Use case 15
+
+\# Use Case Description
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+
+
+**Use Case Name: Let users add a README
+
+**Date: 4/4/21**
+
+ 
+
+\## Summary
+
+users can edit and create a README in order to tell other users of certain details that they might not be aware of about the project 
+
+ 
+
+\## Actors
+
+1. User
+
+   
+
+ 
+
+\## Preconditions
+
+User can create an account
+
+User can create a project 
+
+
+
+ 
+
+\## Triggers
+
+User clicks a button to create a README
+
+ 
+
+\## Primary Sequence
+
+1. User clicks a button to create a README
+
+2. user can now write the README
+
+3. user saves the README
+
+   
+
+ 
+
+\## Primary Postconditions
+
+* All users of the project can now see the README
+
 
 
 NON-FUNCTIONAL REQUIREMENTS:
