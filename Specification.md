@@ -22,7 +22,7 @@ USE CASES:
 12) Track total time online
 13) Restrict task deletion
 14) User can split tasks in sub tasks
-15) Let user set agile/waterfall plan
+15) Let users add a README to the project
 ------------------------------------------------------------------------USE-CASE-1-----------------------------------------------------------------------
 # Use Case Description
 
