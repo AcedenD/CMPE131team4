@@ -4,7 +4,7 @@ Git link: https://github.com/AcedenD/CMPE131team4.git
 -
 -
 
-Project Name: TasK Managerinator (might change)
+Project Name: Task Managerinator (might change)
 
 USE CASES:
 
@@ -23,7 +23,175 @@ USE CASES:
 13) Restrict task deletion
 14) User can split tasks in sub tasks
 15) Let user set agile/waterfall plan
+------------------------------------------------------------------------USE-CASE-1-----------------------------------------------------------------------
+# Use Case Description
 
+**Product Name:** Task Managerinator
+
+**Problem Statement:** The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+
+**Use Case Name:** User create account
+
+**Date:** 3/31
+
+ 
+
+## Summary
+
+User create account, if they don't already have an account
+
+ 
+
+## Actors
+
+1. actor 1: new user, first time using the task manager
+
+   
+
+## Preconditions
+
+precond 1: actor 1 doesn't have an account
+
+
+
+## Triggers
+
+actor 1 first time open the web page (task manager) a home screen will appear, with some info about the app
+
+ 
+
+## Primary Sequence
+
+1. From the home page, actor 1 press on "Login" at the top right corner. 
+2. Since the actor doesn't have an account, he will have to press on "Create an account"
+3. actor 1 enter in their name, email and password then press sign up
+
+ 
+
+## Primary Postconditions
+
+1. After actor 1 press Login link, from the home page, the login page will appear, on the login page there will be a form for the actor to input their info.
+2. Since this is the first time actor 1 is using the app, the actor won't be able to sign in cause he doesn't have an account
+3. After the actor press on "Create an account", the page will redirect to a sign up page. On that page there will be a form for the actor to input their name, email and password. 
+4. After pressing sign up the backend will check if the account (email) already exist in the database; if not then save it into the data base. If account exist then output an error message "Account already exist"
+   the page will redirect to the login page
+
+
+
+## Alternate Sequences
+
+Step 1: If user decide to read about the app to the very end of  the page, there will be a "Create an account" button at the end, If the user click on that, he will be automatically redirect to the sign up page directly without going through the login page.
+Step 2: follow the regular sequence
+
+-----------------------------------------------------------------------------USE-CASE-2-------------------------------------------------------------------
+
+
+
+**Use Case Name:** Schedule Meetings and Events
+
+**Date:** 4/1/21
+
+ 
+
+## Summary
+
+Allow users to schedule meetings/ events for a certain projects group
+ 
+
+## Actors
+
+1. users, current users/ members of the project
+2. System, the back end and front end to handle the data/information
+
+ 
+## Preconditions
+
+1. User must have account, sign in and already in a group project
+
+2. User is currently on the home page of the project they want to create a meeting for.
+
+ 
+
+## Triggers
+
+When any members of the group want to set up a group meeting/event time, they can add a new event time and date to the group calendar.
+
+ 
+## Primary Sequence
+
+1. User will click on an calendar button and user will be redirect to the calendar page.
+2. Once user is at the calendar screen, the calendar of the current month of the current year will appear.
+3. User will click on the date that they want the event to be on, and a screen will appear. This screen allow the user to pick the time of the event and they can put a note of what that even is for. Some example can be: Group meeting, one on one, etc...
+
+ 
+## Primary Postconditions
+
+1. On the project calendar page, a new event appear on the set date. Clicking on it will show the meeting time, the note and who created the event. 
+2. User can now click on it again to edit it if they want.
+
+ 
+
+## Alternate Sequences
+
+* No alternate sequences
+
+
+
+--------------------------------------------------------------------------------USE-CASE-3-------------------------------------------------------------------
+
+**Use Case Name:** Create tasks
+
+**Date:** 4/1/21
+
+ 
+
+## Summary
+
+Allow users to create tasks for a certain projects group
+
+ 
+
+## Actors
+
+1. users, current users/ members of the project
+2. System, the back end and front end to handle the data/information
+
+ 
+
+## Preconditions
+
+1. User must have account, sign in and already in a group project
+2. User is currently on the home page of the project
+
+ 
+
+## Triggers
+
+When any members of the group want to to create a new task for a certain project.
+
+ 
+
+## Primary Sequence
+
+1. User will click on the add task button, and a window will pop up. 
+
+2. On the window, user can name the task, set the due date and add which member the task belong to(if wanted to be specify). 
+
+3. After enter in all the necessary info, the use then press add task that will be at the bottom of the window. 
+
+   
+
+## Primary Postconditions
+
+1. On the project calendar page, a new task card appear in the to do list with the due date at the bottom.
+2. Other members of the group can also see it, and they can edit how ever they like.
+
+
+
+## Alternate Sequences
+
+* No alternate sequences
 
 ------------------------------------------------------------------------USE-CASE-8------------------------------------------------------------------------
 
