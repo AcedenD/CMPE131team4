@@ -194,186 +194,195 @@ When any members of the group want to to create a new task for a certain project
 
 Use Case 4
 --------
-Use Case Description
 
-*Product Name: Task Managerinator
+## Use Case Description
 
-Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+**Product Name:** Task Managerinator
 
-Use Case Name: Set task priority
+**Problem Statement:** The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
 
-Date: 5 April, 2021
-Summary
+**Use Case Name:** Set task priority
+
+**Date:** 5 April, 2021
+
+## Summary
 
 User set which task is the priority among all the tasks that were created that main user and other users can see.
-Actors
 
-    User
-    Systems/ Software
+## Actors
 
-Preconditions
+1. User
+2. Systems/ Software
 
-    User already created task(s)
-    User is currently on the homepage of the project
+## Preconditions
 
-Triggers
+1. User already created task(s)
+2. User is currently on the homepage of the project
 
-    Update certain task(s) to be priority
+## Triggers
 
-Primary Sequence:
+1. Update certain task(s) to be priority
 
-    User clicks on the setting button which located right next to existing task(s)
-    User clicks on ‘Set task as priority’ which is in setting section
+## Primary Sequence:
 
-Primary Postconditions
+1. User clicks on the setting button which located right next to existing task(s)
+2. User clicks on ‘Set task as priority’ which is in setting section
 
-    On the homepage, the priority task will be on the top and highlighted in red
-    User can click on the setting button and click on ‘Set task as priority’ again to make it back to normal task
+## Primary Postconditions
 
-Alternate Sequences
+1. On the homepage, the priority task will be on the top and highlighted in red
+2. User can click on the setting button and click on ‘Set task as priority’ again to make it back to normal task
 
-    No alternate sequence
+## Alternate Sequences
+
+* No alternate sequence
 
 Use Case 5
 --------
-Use Case Description
+## Use Case Description
 
-*Product Name: Task Managerinator
+**Product Name:** Task Managerinator
 
-Problem Statement: Shows user their availability and what date and time they are busy.
+**Problem Statement:** Shows user their availability and what date and time they are busy.
 
-Use Case Name: Central Calendar
+**Use Case Name:** Central Calendar
 
-Date: 5 April, 2021
-Summary
+**Date:** 5 April, 2021
+
+## Summary
 
 User search for their availability and takes a look at their schedule. They can see when they are available and fill new task in empty spots.
-Actors
 
-    User
-    Systems/ Software
-    Clock
+## Actors
 
-Preconditions
+1. User
+2. Systems/ Software
+3. Clock
 
-    User already created task(s)
-    User already set certain date and time for task(s)
+## Preconditions
 
-Triggers
+1. User already created task(s)
+2. User already set certain date and time for task(s)
 
-    Main user or other users add a new task on the same date and time with an existing task
+## Triggers
 
-Primary Sequence:
+1. Main user or other users add a new task on the same date and time with an existing task
 
-    User clicks on the calendar button to see existing tasks’ date and time, and available time
-    A new page will show up with all the existing tasks that match with date and time on the calendar
+## Primary Sequence:
 
-Primary Postconditions
+1. User clicks on the calendar button to see existing tasks’ date and time, and available time
+2. A new page will show up with all the existing tasks that match with date and time on the calendar
 
-    User can click on the task on calendar to move or edit it.
-    Primary task(s) will be highlighted as red on the calendar
+## Primary Postconditions
 
-Alternate Sequences
+1. User can click on the task on calendar to move or edit it.
+2. Primary task(s) will be highlighted as red on the calendar
 
-    No alternate sequence
+## Alternate Sequences
+
+* No alternate sequence
 
 Use Case 6
 --------
-Use Case Description
+## Use Case Description
 
-*Product Name: Task Managerinator
+**Product Name:** Task Managerinator
 
-Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+**Problem Statement:** The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
 
-Use Case Name: Text Channels
+**Use Case Name:** Text Channels
 
-Date: 5 April, 2021
-Summary
+**Date:** 5 April, 2021
+
+## Summary
 
 User creates channel to send and receive text messages. Each text channel is a way to communicate with a contact or group of contacts.
-Actors
 
-    Manager
-    Channel’s members
-    Other users
-    Systems/ Software
+## Actors
 
-Preconditions
+1. Manager
+2. Channel’s members
+3. Other users
+4. Systems/ Software
 
-    User has to add other people to the channel as well as knowing other user’s username
-    User is currently on the homepage of the project
-    Other users have to have an account in order to communicate on this platform
+## Preconditions
 
-Triggers
+1. User has to add other people to the channel as well as knowing other user’s username
+2. User is currently on the homepage of the project
+3. Other users have to have an account in order to communicate on this platform
 
-    New message is posted to a specific text channels of specific group of users
-    Only manager and members of the channels can see the channel
+## Triggers
 
-Primary Sequence:
+1. New message is posted to a specific text channels of specific group of users
+2. Only manager and members of the channels can see the channel
 
-    User clicks on the ‘channel’ button which located on the homepage
-    User sets name for the channel
-    A window will pop up to ask if user wants to add any user
-    User entered other users’ username and click ‘add’ button
-    A page will popup with a textbox on the bottom for tying the text message
-    User clicks on ‘send’ button next to the textbox to send message
+## Primary Sequence:
 
-Primary Postconditions
+1. User clicks on the ‘channel’ button which located on the homepage
+2. User sets name for the channel
+3. A window will pop up to ask if user wants to add any user
+4. User entered other users’ username and click ‘add’ button
+5. A page will popup with a textbox on the bottom for tying the text message
+6. User clicks on ‘send’ button next to the textbox to send message
 
-    Manager who is the one who created the channel can edit the channel’s name
-    Manager can delete the channel
-    Users will receive notification whenever a new text message is received in the channel
+## Primary Postconditions
 
-Alternate Sequences
+1. Manager who is the one who created the channel can edit the channel’s name
+2. Manager can delete the channel
+3. Users will receive notification whenever a new text message is received in the channel
 
-    No alternate sequence
+## Alternate Sequences
+
+* No alternate sequence
 
 Use Case 7
 --------
-Use Case Description
+## Use Case Description
 
-*Product Name: Task Managerinator
+**Product Name:** Task Managerinator
 
-Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+**Problem Statement:** The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
 
-Use Case Name: Progress Reports
+**Use Case Name:** Progress Reports
 
-Date: 5 April, 2021
-Summary
+**Date:** 5 April, 2021
+
+## Summary
 
 User can see the status of the task and see if it is completed or not. User can also add comments on an issue in the task.
-Actors
 
-    Manager
-    User
-    Systems/ Software
+## Actors
 
-Preconditions
+1. Manager
+2. User
+3. Systems/ Software
 
-    User already created task(s)
-    User has to set the deadlines for the task prior
-    Other users should have access to the task
+## Preconditions
 
-Triggers
+1. User already created task(s)
+2. User has to set the deadlines for the task prior
+3. Other users should have access to the task
 
-    User changes status of a task
-    User marks a task as ‘complete’ or ‘in progress’ when a new comment is added on an issue
+## Triggers
 
-Primary Sequence:
+1. User changes status of a task
+2. User marks a task as ‘complete’ or ‘in progress’ when a new comment is added on an issue
 
-    User clicks on the setting button which located right next to existing task(s)
-    User clicks on ‘Update task’ which is in setting section
-    User clicks on either ‘In progress’ or ‘Completed’ button to update the status of a task
-    User clicks on ‘Add comments’ which is in setting section to add comments on the task for others to see and edit.
+## Primary Sequence:
 
-Primary Postconditions
+1. User clicks on the setting button which located right next to existing task(s)
+2. User clicks on ‘Update task’ which is in setting section
+3. User clicks on either ‘In progress’ or ‘Completed’ button to update the status of a task
+4. User clicks on ‘Add comments’ which is in setting section to add comments on the task for others to see and edit.
 
-    Every existing task will be marked as ‘Incomplete’ until user update status
-    User can edit comment on an issue
+## Primary Postconditions
 
-Alternate Sequences
+1. Every existing task will be marked as ‘Incomplete’ until user update status
+2. User can edit comment on an issue
 
-    No alternate sequence
+## Alternate Sequences
+
+* No alternate sequence
 
 
 Use Case 8
