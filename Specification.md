@@ -633,6 +633,7 @@ Date: 4 April, 2021
 1. total time spent logged in is saved by the software to that User
 
 * A graph is made showing the user their usage across the week
+
 Use Case 13
 --------
 
