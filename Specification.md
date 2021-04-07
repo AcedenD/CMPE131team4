@@ -42,7 +42,7 @@ Use Case 1
 
 ## Summary
 
-User create account, if they don't already have an account
+\* User create account, if they don't already have an account
 
  
 
