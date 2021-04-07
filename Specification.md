@@ -1,8 +1,9 @@
 Git link: https://github.com/AcedenD/CMPE131team4.git
+
 -Aden Dang (AcedenD)
 -Aishwar Gupta (Aishwar-Gupta)
--
--
+-Khanh Nguyen (khanhng21)
+-Jugad Khajuria (JugadK)
 
 Project Name: Task Managerinator (might change)
 
@@ -23,7 +24,9 @@ USE CASES:
 13) Restrict task deletion
 14) User can split tasks in sub tasks
 15) Let users add a README to the project
-------------------------------------------------------------------------USE-CASE-1-----------------------------------------------------------------------
+
+Use Case 1
+--------
 # Use Case Description
 
 **Product Name:** Task Managerinator
@@ -84,10 +87,8 @@ actor 1 first time open the web page (task manager) a home screen will appear, w
 Step 1: If user decide to read about the app to the very end of  the page, there will be a "Create an account" button at the end, If the user click on that, he will be automatically redirect to the sign up page directly without going through the login page.
 Step 2: follow the regular sequence
 
------------------------------------------------------------------------------USE-CASE-2-------------------------------------------------------------------
-
-
-
+Use Case 2
+--------
 **Use Case Name:** Schedule Meetings and Events
 
 **Date:** 4/1/21
@@ -97,14 +98,14 @@ Step 2: follow the regular sequence
 ## Summary
 
 Allow users to schedule meetings/ events for a certain projects group
- 
+
 
 ## Actors
 
 1. users, current users/ members of the project
 2. System, the back end and front end to handle the data/information
 
- 
+
 ## Preconditions
 
 1. User must have account, sign in and already in a group project
@@ -117,14 +118,14 @@ Allow users to schedule meetings/ events for a certain projects group
 
 When any members of the group want to set up a group meeting/event time, they can add a new event time and date to the group calendar.
 
- 
+
 ## Primary Sequence
 
 1. User will click on an calendar button and user will be redirect to the calendar page.
 2. Once user is at the calendar screen, the calendar of the current month of the current year will appear.
 3. User will click on the date that they want the event to be on, and a screen will appear. This screen allow the user to pick the time of the event and they can put a note of what that even is for. Some example can be: Group meeting, one on one, etc...
 
- 
+
 ## Primary Postconditions
 
 1. On the project calendar page, a new event appear on the set date. Clicking on it will show the meeting time, the note and who created the event. 
@@ -136,10 +137,8 @@ When any members of the group want to set up a group meeting/event time, they ca
 
 * No alternate sequences
 
-
-
---------------------------------------------------------------------------------USE-CASE-3-------------------------------------------------------------------
-
+Use Case 3
+--------
 **Use Case Name:** Create tasks
 
 **Date:** 4/1/21
@@ -193,7 +192,192 @@ When any members of the group want to to create a new task for a certain project
 
 * No alternate sequences
 
-------------------------------------------------------------------------USE-CASE-8------------------------------------------------------------------------
+Use Case 4
+--------
+Use Case Description
+
+*Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Set task priority
+
+Date: 4/5/21
+Summary
+
+User set which task is the priority among all the tasks that were created that main user and other users can see.
+Actors
+
+    User
+    Systems/ Software
+
+Preconditions
+
+    User already created task(s)
+    User is currently on the homepage of the project
+
+Triggers
+
+    Update certain task(s) to be priority
+
+Primary Sequence:
+
+    User clicks on the setting button which located right next to existing task(s)
+    User clicks on ‘Set task as priority’ which is in setting section
+
+Primary Postconditions
+
+    On the homepage, the priority task will be on the top and highlighted in red
+    User can click on the setting button and click on ‘Set task as priority’ again to make it back to normal task
+
+Alternate Sequences
+
+    No alternate sequence
+
+Use Case 5
+--------
+Use Case Description
+
+*Product Name: Task Managerinator
+
+Problem Statement: Shows user their availability and what date and time they are busy.
+
+Use Case Name: Central Calendar
+
+Date: 4/5/21
+Summary
+
+User search for their availability and takes a look at their schedule. They can see when they are available and fill new task in empty spots.
+Actors
+
+    User
+    Systems/ Software
+    Clock
+
+Preconditions
+
+    User already created task(s)
+    User already set certain date and time for task(s)
+
+Triggers
+
+    Main user or other users add a new task on the same date and time with an existing task
+
+Primary Sequence:
+
+    User clicks on the calendar button to see existing tasks’ date and time, and available time
+    A new page will show up with all the existing tasks that match with date and time on the calendar
+
+Primary Postconditions
+
+    User can click on the task on calendar to move or edit it.
+    Primary task(s) will be highlighted as red on the calendar
+
+Alternate Sequences
+
+    No alternate sequence
+
+Use Case 6
+--------
+Use Case Description
+
+*Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Text Channels
+
+Date: 4/5/21
+Summary
+
+User creates channel to send and receive text messages. Each text channel is a way to communicate with a contact or group of contacts.
+Actors
+
+    Manager
+    Channel’s members
+    Other users
+    Systems/ Software
+
+Preconditions
+
+    User has to add other people to the channel as well as knowing other user’s username
+    User is currently on the homepage of the project
+    Other users have to have an account in order to communicate on this platform
+
+Triggers
+
+    New message is posted to a specific text channels of specific group of users
+    Only manager and members of the channels can see the channel
+
+Primary Sequence:
+
+    User clicks on the ‘channel’ button which located on the homepage
+    User sets name for the channel
+    A window will pop up to ask if user wants to add any user
+    User entered other users’ username and click ‘add’ button
+    A page will popup with a textbox on the bottom for tying the text message
+    User clicks on ‘send’ button next to the textbox to send message
+
+Primary Postconditions
+
+    Manager who is the one who created the channel can edit the channel’s name
+    Manager can delete the channel
+    Users will receive notification whenever a new text message is received in the channel
+
+Alternate Sequences
+
+    No alternate sequence
+
+Use Case 7
+--------
+Use Case Description
+
+*Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Progress Reports
+
+Date: 4/5/21
+Summary
+
+User can see the status of the task and see if it is completed or not. User can also add comments on an issue in the task.
+Actors
+
+    Manager
+    User
+    Systems/ Software
+
+Preconditions
+
+    User already created task(s)
+    User has to set the deadlines for the task prior
+    Other users should have access to the task
+
+Triggers
+
+    User changes status of a task
+    User marks a task as ‘complete’ or ‘in progress’ when a new comment is added on an issue
+
+Primary Sequence:
+
+    User clicks on the setting button which located right next to existing task(s)
+    User clicks on ‘Update task’ which is in setting section
+    User clicks on either ‘In progress’ or ‘Completed’ button to update the status of a task
+    User clicks on ‘Add comments’ which is in setting section to add comments on the task for others to see and edit.
+
+Primary Postconditions
+
+    Every existing task will be marked as ‘Incomplete’ until user update status
+    User can edit comment on an issue
+
+Alternate Sequences
+
+    No alternate sequence
+
+
+Use Case 8
+--------
 
 ## Use Case Description
 
@@ -243,8 +427,8 @@ Postcondition 2: The notification would be stored in the inbox within the users 
 
 NO ALTERNATE SEQUENCE FOR THIS TASK SET.
 
-
-------------------------------------------------------------------------USE-CASE-9------------------------------------------------------------------------
+Use Case 9
+--------
 
 ## Use Case Description
 
@@ -290,7 +474,8 @@ Postcondition 3: Look for a different reminder by checking date and time and rep
 
 NO ALTERNATE SEQUENCE FOR THIS TASK SET.
 
-------------------------------------------------------------------------USE-CASE-10-----------------------------------------------------------------------
+Use Case 10
+--------
 
 ## Use Case Description
 
@@ -340,7 +525,8 @@ Postcondition 3: Set reminders and priority as assigned by the leader or the use
 
 NO ALTERNATE SEQUENCE FOR THIS TASK SET.
 
-------------------------------------------------------------------------USE-CASE-11-----------------------------------------------------------------------
+Use Case 11
+--------
 
 ## Use Case Description
 
@@ -397,12 +583,192 @@ Postcondition 9: Disable task deletion for members without permission.
 
 NO ALTERNATE SEQUENCE FOR THIS TASK SET.
 
-------------------------------------------------------------------------USE-CASE-12-----------------------------------------------------------------------
+Use Case 12
+--------
 
+# Use Case Description
 
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+**Use Case Name: Track total time online **
+
+Date: 4/4/21
+
+## Summary
+
+The software will track the total amount of time the user is logged in on the application, this will then be shown to the users a total number and as a graph that is broken down into what day of the week they were spent
+
+## Actors
+
+    Software
+    
+    User
+
+## Preconditions
+
+User can create an account
+
+## Triggers
+
+When user logs in
+
+## Primary Sequence
+
+    User Logs in
+    
+    Software begins tracking how long they are logged in till they log off
+
+## Primary Postconditions
+
+    total time spent logged in is saved by the software to that User
+
+* A graph is made showing the user their usage across the week
+* 
+Use Case 13
+--------
+
+*Product Name:* Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+*Use Case Name:* Restrict Task Deletion
+
+*Date:* 4/4
+
+## Summary
+
+Deleting or comleting a task should be restricted to caertain users who have the correct permissions in order to make sure not anyone can set a task as done or deleted, making things easier to manage
+
+## Actors
+
+actor 1: System
+
+## Preconditions
+
+precond 1: users have accounts
+
+precond 2: projects are working
+
+precond 3: tasks can be created
+
+## Triggers
+
+when user tries to delete or complete a task
+
+## Primary Sequence
+
+\1. User clicks on task
+
+\2. user clicks on a button to delete tasks
+
+\3. it works depending on whether the user has the right permissions
+
+## Primary Postconditions
+
+\1. Task still exists or is deleted depending on if the user has the right permissions
+
+Use Case 14
+--------
+
+# Use Case Description
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+**Use Case Name: User can split tasks in subtasks
+
+Date: 4/4/21
+
+## Summary
+
+A task can be further split into sub tasks that can be assigned to users
+
+## Actors
+
+    Software
+    
+    User
+
+## Preconditions
+
+User can create an account
+
+Users can create tasks
+
+## Triggers
+
+When a user tries to create subtasks
+
+When a user creates a task
+
+## Primary Sequence
+
+    User creates task
+    
+    user can now create subtasks within the task and assign it to other people
+
+## Primary Postconditions
+
+    subtasks are now shown and can bea signed to other users
+
+##Alternate sequence
+
+    User clicks on task
+    user can now add subtasks that are displayed underneath the task
+
+Use Case 15
+--------
+
+# Use Case Description
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+**Use Case Name: Let users add a README
+
+Date: 4/4/21
+
+## Summary
+
+users can edit and create a README in order to tell other users of certain details that they might not be aware of about the project
+
+## Actors
+
+    User
+
+## Preconditions
+
+User can create an account
+
+User can create a project
+
+## Triggers
+
+User clicks a button to create a README
+
+## Primary Sequence
+
+    User clicks a button to create a README
+    
+    user can now write the README
+    
+    user saves the README
+
+## Primary Postconditions
+
+    All users of the project can now see the README
 
 NON-FUNCTIONAL REQUIREMENTS:
-1) The system shall be available 24 hours/day and be able to upgrade while it is running.
-2) System shall authenticate the user to maintain security and privacy.
-3) System shall display 10 tasks per page and download files within five seconds.
+
+    The system shall be available 24 hours/day and be able to upgrade while it is running.
+    System shall authenticate the user to maintain security and privacy.
+    System shall display 10 tasks per page and download files within five seconds.
+
+
+
+![project UML chart](C:\Users\Aden\Downloads\CMPE131team4-main\CMPE131team4-main\project UML chart.png)
 
