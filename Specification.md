@@ -5,7 +5,7 @@ Git link: https://github.com/AcedenD/CMPE131team4.git
 -Khanh Nguyen (khanhng21)
 -Jugad Khajuria (JugadK)
 
-Project Name: Task Managerinator (might change)
+Project Name: Task Managerinator
 
 USE CASES:
 
@@ -603,6 +603,7 @@ The software will track the total amount of time the user is logged in on the ap
 ## Actors
 
     Software
+<<<<<<< HEAD
     
     User
 
@@ -690,6 +691,110 @@ A task can be further split into sub tasks that can be assigned to users
 
     Software
     
+=======
+
+>>>>>>> ddf088dc1441da17b2a1324e61ec7dfb25be36ae
+    User
+
+## Preconditions
+
+User can create an account
+<<<<<<< HEAD
+
+Users can create tasks
+
+## Triggers
+
+When a user tries to create subtasks
+
+When a user creates a task
+
+## Primary Sequence
+
+    User creates task
+    
+=======
+
+## Triggers
+
+When user logs in
+
+## Primary Sequence
+
+    User Logs in
+
+    Software begins tracking how long they are logged in till they log off
+
+## Primary Postconditions
+
+    total time spent logged in is saved by the software to that User
+
+* A graph is made showing the user their usage across the week
+* 
+Use Case 13
+--------
+
+*Product Name:* Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+*Use Case Name:* Restrict Task Deletion
+
+*Date:* 4/4
+
+## Summary
+
+Deleting or comleting a task should be restricted to caertain users who have the correct permissions in order to make sure not anyone can set a task as done or deleted, making things easier to manage
+
+## Actors
+
+actor 1: System
+
+## Preconditions
+
+precond 1: users have accounts
+
+precond 2: projects are working
+
+precond 3: tasks can be created
+
+## Triggers
+
+when user tries to delete or complete a task
+
+## Primary Sequence
+
+\1. User clicks on task
+
+\2. user clicks on a button to delete tasks
+
+\3. it works depending on whether the user has the right permissions
+
+## Primary Postconditions
+
+\1. Task still exists or is deleted depending on if the user has the right permissions
+
+Use Case 14
+--------
+
+# Use Case Description
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+**Use Case Name: User can split tasks in subtasks
+
+Date: 4/4/21
+
+## Summary
+
+A task can be further split into sub tasks that can be assigned to users
+
+## Actors
+
+    Software
+
     User
 
 ## Preconditions
@@ -707,7 +812,8 @@ When a user creates a task
 ## Primary Sequence
 
     User creates task
-    
+
+>>>>>>> ddf088dc1441da17b2a1324e61ec7dfb25be36ae
     user can now create subtasks within the task and assign it to other people
 
 ## Primary Postconditions
@@ -718,6 +824,7 @@ When a user creates a task
 
     User clicks on task
     user can now add subtasks that are displayed underneath the task
+<<<<<<< HEAD
 
 Use Case 15
 --------
@@ -771,4 +878,56 @@ NON-FUNCTIONAL REQUIREMENTS:
 
 
 ![project UML chart](C:\Users\Aden\Downloads\CMPE131team4-main\CMPE131team4-main\project UML chart.png)
+=======
+    
+Use Case 15
+--------
 
+# Use Case Description
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+**Use Case Name: Let users add a README
+
+Date: 4/4/21
+
+## Summary
+
+users can edit and create a README in order to tell other users of certain details that they might not be aware of about the project
+
+## Actors
+
+    User
+
+## Preconditions
+
+User can create an account
+
+User can create a project
+
+## Triggers
+
+User clicks a button to create a README
+
+## Primary Sequence
+
+    User clicks a button to create a README
+
+    user can now write the README
+
+    user saves the README
+
+## Primary Postconditions
+
+    All users of the project can now see the README
+
+NON-FUNCTIONAL REQUIREMENTS:
+>>>>>>> ddf088dc1441da17b2a1324e61ec7dfb25be36ae
+
+    The system shall be available 24 hours/day and be able to upgrade while it is running.
+    System shall authenticate the user to maintain security and privacy.
+    System shall display 10 tasks per page and download files within five seconds.
+    
+![](project_UML_chart.png)
