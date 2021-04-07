@@ -767,3 +767,5 @@ NON-FUNCTIONAL REQUIREMENTS:
     The system shall be available 24 hours/day and be able to upgrade while it is running.
     System shall authenticate the user to maintain security and privacy.
     System shall display 10 tasks per page and download files within five seconds.
+    
+![project UML chart](project UML chart.png)
