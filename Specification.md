@@ -602,29 +602,28 @@ Date: 4 April, 2021
 
 ## Actors
 
-    Software    
-    User
+1. Software    
+2. User
 
 ## Preconditions
 
-    User can create an account
+1. User can create an account
 
 ## Triggers
 
-    When user logs in
+1. When user logs in
 
 ## Primary Sequence
 
-    User Logs in
+1. User Logs in
     
-    Software begins tracking how long they are logged in till they log off
+2. Software begins tracking how long they are logged in till they log off
 
 ## Primary Postconditions
 
-    total time spent logged in is saved by the software to that User
+1. total time spent logged in is saved by the software to that User
 
 * A graph is made showing the user their usage across the week
-* 
 Use Case 13
 --------
 
@@ -642,31 +641,31 @@ Problem Statement: The project allows users to manage a set of tasks and be able
 
 ## Actors
 
-    System
+1. System
 
 ## Preconditions
 
-    users have accounts
+1. users have accounts
 
-    projects are working
+2. projects are working
 
-    tasks can be created
+3. tasks can be created
 
 ## Triggers
 
-    when user tries to delete or complete a task
+1. when user tries to delete or complete a task
 
 ## Primary Sequence
 
-    User clicks on task
+1.  User clicks on task
 
-    user clicks on a button to delete tasks
+2. user clicks on a button to delete tasks
 
-    it works depending on whether the user has the right permissions
+3. it works depending on whether the user has the right permissions
 
 ## Primary Postconditions
 
-    Task still exists or is deleted depending on if the user has the right permissions
+1. Task still exists or is deleted depending on if the user has the right permissions
 
 Use Case 14
 --------
@@ -687,40 +686,36 @@ A task can be further split into sub tasks that can be assigned to users
 
 ## Actors
 
-    Software
-    User
+1. Software
+2. User
 
 ## Preconditions
 
-    User can create an account
-
-    Users can create tasks
+1. User can create an account
+2. Users can create tasks
 
 ## Triggers
 
-When a user tries to create subtasks
-
-When a user creates a task
+1. When a user tries to create subtasks
+2. When a user creates a task
 
 ## Primary Sequence
 
-    User creates task
+1. User creates task
     
 ## Triggers
 
-When user logs in
+1. When user logs in
 
 ## Primary Sequence
 
-    User Logs in
-
-    Software begins tracking how long they are logged in till they log off
+1. User Logs in
+2. Software begins tracking how long they are logged in till they log off
 
 ## Primary Postconditions
 
-    total time spent logged in is saved by the software to that User
-
-    A graph is made showing the user their usage across the week
+1.total time spent logged in is saved by the software to that User
+2. A graph is made showing the user their usage across the week
 
 
 Use Case 15
@@ -738,42 +733,37 @@ Date: 4 April, 2021
 
 ## Summary
 
-users can edit and create a README in order to tell other users of certain details that they might not be aware of about the project
+1. users can edit and create a README in order to tell other users of certain details that they might not be aware of about the project
 
 ## Actors
 
-    User
+1. User
 
 ## Preconditions
-
-    User can create an account
-
-    User can create a project
+1. User can create an account
+2. User can create a project
 
 ## Triggers
-
-    User clicks a button to create a README
+1. User clicks a button to create a README
 
 ## Primary Sequence:
 
-    User clicks a button to create a README
-
-    user can now write the README
-
-    user saves the README
+1. User clicks a button to create a README
+2. user can now write the README
+3. user saves the README
 
 ## Primary Postconditions:
 
-    All users of the project can now see the README
+1. All users of the project can now see the README
 
 
 
 
 ##NON-FUNCTIONAL REQUIREMENTS:
 
-    The system shall be available 24 hours/day and be able to upgrade while it is running.
-    System shall authenticate the user to maintain security and privacy.
-    System shall display 10 tasks per page and download files within five seconds.
+1. The system shall be available 24 hours/day and be able to upgrade while it is running.
+2. System shall authenticate the user to maintain security and privacy.
+3. System shall display 10 tasks per page and download files within five seconds.
     
 
 ![](project_UML_chart.png)
