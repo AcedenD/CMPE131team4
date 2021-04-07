@@ -6,5 +6,5 @@
 
 # External Tools
 
-    SQLite Databse viewer https://sqliteonline.com/
+    SQLite Database viewer https://sqliteonline.com/
 
