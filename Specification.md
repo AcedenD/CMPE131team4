@@ -602,9 +602,7 @@ The software will track the total amount of time the user is logged in on the ap
 
 ## Actors
 
-    Software
-<<<<<<< HEAD
-    
+    Software    
     User
 
 ## Preconditions
@@ -690,16 +688,11 @@ A task can be further split into sub tasks that can be assigned to users
 ## Actors
 
     Software
-    
-=======
-
->>>>>>> ddf088dc1441da17b2a1324e61ec7dfb25be36ae
     User
 
 ## Preconditions
 
 User can create an account
-<<<<<<< HEAD
 
 Users can create tasks
 
@@ -713,8 +706,6 @@ When a user creates a task
 
     User creates task
     
-=======
-
 ## Triggers
 
 When user logs in
@@ -812,8 +803,6 @@ When a user creates a task
 ## Primary Sequence
 
     User creates task
-
->>>>>>> ddf088dc1441da17b2a1324e61ec7dfb25be36ae
     user can now create subtasks within the task and assign it to other people
 
 ## Primary Postconditions
@@ -824,7 +813,6 @@ When a user creates a task
 
     User clicks on task
     user can now add subtasks that are displayed underneath the task
-<<<<<<< HEAD
 
 Use Case 15
 --------
@@ -876,9 +864,6 @@ NON-FUNCTIONAL REQUIREMENTS:
     System shall display 10 tasks per page and download files within five seconds.
 
 
-
-![project UML chart](C:\Users\Aden\Downloads\CMPE131team4-main\CMPE131team4-main\project UML chart.png)
-=======
     
 Use Case 15
 --------
@@ -923,11 +908,14 @@ User clicks a button to create a README
 
     All users of the project can now see the README
 
-NON-FUNCTIONAL REQUIREMENTS:
->>>>>>> ddf088dc1441da17b2a1324e61ec7dfb25be36ae
+
+
+
+##NON-FUNCTIONAL REQUIREMENTS:
 
     The system shall be available 24 hours/day and be able to upgrade while it is running.
     System shall authenticate the user to maintain security and privacy.
     System shall display 10 tasks per page and download files within five seconds.
     
+
 ![](project_UML_chart.png)
