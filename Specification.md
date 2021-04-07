@@ -720,8 +720,8 @@ When user logs in
 
     total time spent logged in is saved by the software to that User
 
-* A graph is made showing the user their usage across the week
-* 
+    A graph is made showing the user their usage across the week
+
 
 Use Case 15
 --------
