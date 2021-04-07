@@ -34,9 +34,9 @@ Use Case 1
 **Problem Statement:** The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
 
 
-**Use Case Name:** User create account
+**Use Case Name:** create account
 
-**Date:** 3/31
+**Date:** 31 March, 2021
 
  
 
@@ -91,7 +91,7 @@ Use Case 2
 --------
 **Use Case Name:** Schedule Meetings and Events
 
-**Date:** 4/1/21
+**Date:** 1 April, 2021
 
  
 
@@ -141,7 +141,7 @@ Use Case 3
 --------
 **Use Case Name:** Create tasks
 
-**Date:** 4/1/21
+**Date:** 1 April, 2021
 
  
 
@@ -202,7 +202,7 @@ Problem Statement: The project allows users to manage a set of tasks and be able
 
 Use Case Name: Set task priority
 
-Date: 4/5/21
+Date: 5 April, 2021
 Summary
 
 User set which task is the priority among all the tasks that were created that main user and other users can see.
@@ -244,7 +244,7 @@ Problem Statement: Shows user their availability and what date and time they are
 
 Use Case Name: Central Calendar
 
-Date: 4/5/21
+Date: 5 April, 2021
 Summary
 
 User search for their availability and takes a look at their schedule. They can see when they are available and fill new task in empty spots.
@@ -287,7 +287,7 @@ Problem Statement: The project allows users to manage a set of tasks and be able
 
 Use Case Name: Text Channels
 
-Date: 4/5/21
+Date: 5 April, 2021
 Summary
 
 User creates channel to send and receive text messages. Each text channel is a way to communicate with a contact or group of contacts.
@@ -338,7 +338,7 @@ Problem Statement: The project allows users to manage a set of tasks and be able
 
 Use Case Name: Progress Reports
 
-Date: 4/5/21
+Date: 5 April, 2021
 Summary
 
 User can see the status of the task and see if it is completed or not. User can also add comments on an issue in the task.
@@ -594,7 +594,7 @@ Problem Statement: The project allows users to manage a set of tasks and be able
 
 **Use Case Name: Track total time online **
 
-Date: 4/4/21
+Date: 4 April, 2021
 
 ## Summary
 
@@ -634,7 +634,7 @@ Problem Statement: The project allows users to manage a set of tasks and be able
 
 *Use Case Name:* Restrict Task Deletion
 
-*Date:* 4/4
+*Date:* 4 April, 2021
 
 ## Summary
 
@@ -679,7 +679,7 @@ Problem Statement: The project allows users to manage a set of tasks and be able
 
 **Use Case Name: User can split tasks in subtasks
 
-Date: 4/4/21
+Date: 4 April, 2021
 
 ## Summary
 
@@ -731,7 +731,7 @@ Problem Statement: The project allows users to manage a set of tasks and be able
 
 *Use Case Name:* Restrict Task Deletion
 
-*Date:* 4/4
+*Date:* 4 April, 2021
 
 ## Summary
 
@@ -776,7 +776,7 @@ Problem Statement: The project allows users to manage a set of tasks and be able
 
 **Use Case Name: User can split tasks in subtasks
 
-Date: 4/4/21
+Date: 4 April, 2021
 
 ## Summary
 
@@ -814,55 +814,6 @@ When a user creates a task
     User clicks on task
     user can now add subtasks that are displayed underneath the task
 
-Use Case 15
---------
-
-# Use Case Description
-
-Product Name: Task Managerinator
-
-Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
-
-**Use Case Name: Let users add a README
-
-Date: 4/4/21
-
-## Summary
-
-users can edit and create a README in order to tell other users of certain details that they might not be aware of about the project
-
-## Actors
-
-    User
-
-## Preconditions
-
-User can create an account
-
-User can create a project
-
-## Triggers
-
-User clicks a button to create a README
-
-## Primary Sequence
-
-    User clicks a button to create a README
-    
-    user can now write the README
-    
-    user saves the README
-
-## Primary Postconditions
-
-    All users of the project can now see the README
-
-NON-FUNCTIONAL REQUIREMENTS:
-
-    The system shall be available 24 hours/day and be able to upgrade while it is running.
-    System shall authenticate the user to maintain security and privacy.
-    System shall display 10 tasks per page and download files within five seconds.
-
 
     
 Use Case 15
@@ -876,7 +827,7 @@ Problem Statement: The project allows users to manage a set of tasks and be able
 
 **Use Case Name: Let users add a README
 
-Date: 4/4/21
+Date: 4 April, 2021
 
 ## Summary
 
