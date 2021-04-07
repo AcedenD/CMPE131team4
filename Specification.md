@@ -598,7 +598,7 @@ Date: 4 April, 2021
 
 ## Summary
 
-The software will track the total amount of time the user is logged in on the application, this will then be shown to the users a total number and as a graph that is broken down into what day of the week they were spent
+    The software will track the total amount of time the user is logged in on the application, this will then be shown to the users a total number and as a graph that is broken down into what day of the week they were spent
 
 ## Actors
 
@@ -607,11 +607,11 @@ The software will track the total amount of time the user is logged in on the ap
 
 ## Preconditions
 
-User can create an account
+    User can create an account
 
 ## Triggers
 
-When user logs in
+    When user logs in
 
 ## Primary Sequence
 
@@ -638,184 +638,91 @@ Problem Statement: The project allows users to manage a set of tasks and be able
 
 ## Summary
 
-Deleting or comleting a task should be restricted to caertain users who have the correct permissions in order to make sure not anyone can set a task as done or deleted, making things easier to manage
+    Deleting or comleting a task should be restricted to caertain users who have the correct permissions in order to make sure not anyone can set a task as done or deleted, making things easier to manage
 
 ## Actors
 
-actor 1: System
+    System
 
 ## Preconditions
 
-precond 1: users have accounts
+    users have accounts
 
-precond 2: projects are working
+    projects are working
 
-precond 3: tasks can be created
-
-## Triggers
-
-when user tries to delete or complete a task
-
-## Primary Sequence
-
-\1. User clicks on task
-
-\2. user clicks on a button to delete tasks
-
-\3. it works depending on whether the user has the right permissions
-
-## Primary Postconditions
-
-\1. Task still exists or is deleted depending on if the user has the right permissions
-
-Use Case 14
---------
-
-# Use Case Description
-
-Product Name: Task Managerinator
-
-Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
-
-**Use Case Name: User can split tasks in subtasks
-
-Date: 4 April, 2021
-
-## Summary
-
-A task can be further split into sub tasks that can be assigned to users
-
-## Actors
-
-    Software
-    User
-
-## Preconditions
-
-User can create an account
-
-Users can create tasks
+    tasks can be created
 
 ## Triggers
 
-When a user tries to create subtasks
-
-When a user creates a task
+    when user tries to delete or complete a task
 
 ## Primary Sequence
-
-    User creates task
-    
-## Triggers
-
-When user logs in
-
-## Primary Sequence
-
-    User Logs in
-
-    Software begins tracking how long they are logged in till they log off
-
-## Primary Postconditions
-
-    total time spent logged in is saved by the software to that User
-
-* A graph is made showing the user their usage across the week
-* 
-Use Case 13
---------
-
-*Product Name:* Task Managerinator
-
-Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
-
-*Use Case Name:* Restrict Task Deletion
-
-*Date:* 4 April, 2021
-
-## Summary
-
-Deleting or comleting a task should be restricted to caertain users who have the correct permissions in order to make sure not anyone can set a task as done or deleted, making things easier to manage
-
-## Actors
-
-actor 1: System
-
-## Preconditions
-
-precond 1: users have accounts
-
-precond 2: projects are working
-
-precond 3: tasks can be created
-
-## Triggers
-
-when user tries to delete or complete a task
-
-## Primary Sequence
-
-\1. User clicks on task
-
-\2. user clicks on a button to delete tasks
-
-\3. it works depending on whether the user has the right permissions
-
-## Primary Postconditions
-
-\1. Task still exists or is deleted depending on if the user has the right permissions
-
-Use Case 14
---------
-
-# Use Case Description
-
-Product Name: Task Managerinator
-
-Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
-
-**Use Case Name: User can split tasks in subtasks
-
-Date: 4 April, 2021
-
-## Summary
-
-A task can be further split into sub tasks that can be assigned to users
-
-## Actors
-
-    Software
-
-    User
-
-## Preconditions
-
-User can create an account
-
-Users can create tasks
-
-## Triggers
-
-When a user tries to create subtasks
-
-When a user creates a task
-
-## Primary Sequence
-
-    User creates task
-    user can now create subtasks within the task and assign it to other people
-
-## Primary Postconditions
-
-    subtasks are now shown and can bea signed to other users
-
-##Alternate sequence
 
     User clicks on task
-    user can now add subtasks that are displayed underneath the task
 
+    user clicks on a button to delete tasks
 
+    it works depending on whether the user has the right permissions
+
+## Primary Postconditions
+
+    Task still exists or is deleted depending on if the user has the right permissions
+
+Use Case 14
+--------
+
+# Use Case Description
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+**Use Case Name: User can split tasks in subtasks
+
+Date: 4 April, 2021
+
+## Summary
+
+A task can be further split into sub tasks that can be assigned to users
+
+## Actors
+
+    Software
+    User
+
+## Preconditions
+
+    User can create an account
+
+    Users can create tasks
+
+## Triggers
+
+When a user tries to create subtasks
+
+When a user creates a task
+
+## Primary Sequence
+
+    User creates task
     
+## Triggers
+
+When user logs in
+
+## Primary Sequence
+
+    User Logs in
+
+    Software begins tracking how long they are logged in till they log off
+
+## Primary Postconditions
+
+    total time spent logged in is saved by the software to that User
+
+* A graph is made showing the user their usage across the week
+* 
+
 Use Case 15
 --------
 
@@ -839,15 +746,15 @@ users can edit and create a README in order to tell other users of certain detai
 
 ## Preconditions
 
-User can create an account
+    User can create an account
 
-User can create a project
+    User can create a project
 
 ## Triggers
 
-User clicks a button to create a README
+    User clicks a button to create a README
 
-## Primary Sequence
+## Primary Sequence:
 
     User clicks a button to create a README
 
@@ -855,7 +762,7 @@ User clicks a button to create a README
 
     user saves the README
 
-## Primary Postconditions
+## Primary Postconditions:
 
     All users of the project can now see the README
 
