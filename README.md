@@ -8,3 +8,7 @@
 
     SQLite Database viewer https://sqliteonline.com/
 
+# How to run app
+
+    python3 run.py
+    
