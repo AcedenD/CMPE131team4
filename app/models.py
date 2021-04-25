@@ -12,7 +12,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(32), unique=True, nullable=False, index=True)
     password = db.Column(db.String(200), unique=False)
 
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
+    tasks = db.relationship('Tasks', backref='author', lazy='dynamic')
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -20,18 +20,30 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-    def __repr__(self):
-        return '<User {}>'.format(self.username)    
-        
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(256))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
-        return '<Posts {}>'.format(self.body)
+        return '<User {}>'.format(self.username)
+
+
+class Tasks(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	task = db.Column(db.String(256))
+	# priority is level 1-3; 1 is least important , and 3 is most important
+	priority = db.Column(db.Integer)
+	timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+
+	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+	def __repr__(self):
+		user = User.query.filter_by(id = self.user_id).first()
+		return f'<Task: {self.task} created by {user}>'
+
+	def set_priority(self, priority):
+		self.priority = priority
+
+
+
+
 
 @login.user_loader
 def load_user(id):
