@@ -124,9 +124,13 @@ def user_setting():
 @myapp_obj.route('/changePassword',methods=['GET','POST'])
 @login_required
 def change_password():
-	print(type(User.query.filter_by(id = current_user.id).first()))
+	user = User.query.filter_by(id = current_user.id).first()
 	form = ChangePasswordForm()
-	print(current_user.check_password(form.old_password.data))
-#	print(form.old_password.data)
-#	print(form.new_password.data)
+	print(user)
+	if form.validate_on_submit():
+		if user.check_password(form.old_password.data) and (form.old_password.data != form.new_password.data)  and (form.new_password.data == form.new_password_confirm.data):
+			user.set_password(form.new_password.data)
+			db.session.commit()
+			return redirect(url_for('user_setting'))
+
 	return render_template('changePassword.html', form = form)
