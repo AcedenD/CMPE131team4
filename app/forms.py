@@ -17,3 +17,9 @@ class RegisForm(FlaskForm):
 class TaskForm(FlaskForm):
 	task = StringField('Task', validators = [DataRequired()])
 	submit = SubmitField('Add Task')
+
+class ChangePasswordForm(FlaskForm):
+	old_password = StringField('Current Password', validators=[DataRequired()])
+	new_password = StringField('New Password', validators=[DataRequired()])
+	new_password_confirm = StringField('New Password Confirm', validators=[DataRequired()])
+	submit = SubmitField('Change Password')

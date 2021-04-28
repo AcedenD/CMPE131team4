@@ -1,14 +1,29 @@
 # CMPE131team4
 
-# Dependencies
+##Table of contents
+* [How to run app](#how-to-run-app)
+* [Dependencies](#dependencies)
+* [External Tools](#external-tools)
+* [Use Case](#use-cases)
 
-    pip install flask flask-wtf flask-sqlalchemy flask-login
+## How to run app
 
-# External Tools
+* python3 run.py
 
-    SQLite Database viewer https://sqliteonline.com/
+## Dependencies
 
-# How to run app
+* pip/pip3 install flask flask-wtf flask-sqlalchemy flask-login
 
-    python3 run.py
+## External Tools
+
+* SQLite Database viewer https://sqliteonline.com/
+
+## Use Cases
+ 
+- Create account
+- Create project
+- Create task
+- Central Calender
+- Track online time
+- User able to change password
     

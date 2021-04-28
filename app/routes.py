@@ -5,7 +5,7 @@ from flask_login import login_required
 
 from app import myapp_obj
 from app import db
-from app.forms import LoginForm, RegisForm, TaskForm
+from app.forms import LoginForm, RegisForm, TaskForm, ChangePasswordForm
 
 from app.models import User, Tasks
 
@@ -109,3 +109,28 @@ def project_home():
 		new_t['task'] = t.task
 		tasks.append(new_t)
 	return render_template('project_home.html',tasks = tasks, form = form)
+
+
+# user setting
+@myapp_obj.route("/userSetting")
+@login_required
+def user_setting():
+	print(current_user)
+	print(current_user.id)
+	return render_template('userSetting.html')
+
+
+# change password
+@myapp_obj.route('/changePassword',methods=['GET','POST'])
+@login_required
+def change_password():
+	user = User.query.filter_by(id = current_user.id).first()
+	form = ChangePasswordForm()
+	print(user)
+	if form.validate_on_submit():
+		if user.check_password(form.old_password.data) and (form.old_password.data != form.new_password.data)  and (form.new_password.data == form.new_password_confirm.data):
+			user.set_password(form.new_password.data)
+			db.session.commit()
+			return redirect(url_for('user_setting'))
+
+	return render_template('changePassword.html', form = form)
