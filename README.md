@@ -1,9 +1,14 @@
 # CMPE131team4
 
 ##Table of contents
+* [How to run app](#how-to-run-app)
 * [Dependencies](#dependencies)
 * [External Tools](#external-tools)
 * [Use Case](#use-cases)
+
+## How to run app
+
+* python3 run.py
 
 ## Dependencies
 
@@ -20,4 +25,5 @@
 - Create task
 - Central Calender
 - Track online time
-- Change user password
+- User able to change password
+    
