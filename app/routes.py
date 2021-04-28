@@ -2,18 +2,19 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user
 from flask_login import logout_user
 from flask_login import login_required
+import uuid
 
 from app import myapp_obj
 from app import db
-from app.forms import LoginForm, RegisForm, TaskForm
+from app.forms import LoginForm, RegisForm, TaskForm, ProjectForm
 
-from app.models import User, Tasks
+from app.models import User, Tasks, Project
 
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
 	if current_user.is_authenticated:
-		return "<h1>you already logged in</h1>" 
+		return redirect("/home") 
 	form = LoginForm()
 	if form.validate_on_submit():
         # User.query.filter_by() returns a list from the User table
@@ -38,7 +39,7 @@ def login():
 		next_page = request.args.get('next')
 		if not next_page or url_parse(next_page).netloc != '':
 			# project is a home page
-			next_page = url_for('project_home')
+			next_page = url_for('home')
 
 		return redirect(next_page)
 
@@ -87,22 +88,49 @@ def req():
 def main():
 	return render_template('main.html')
 
+#project page
+@myapp_obj.route("/home", methods =["GET", "POST"])
+@login_required
+def home():
+	form = ProjectForm()
+	if form.validate_on_submit():
+		project_id = str(uuid.uuid4())
+		project = Project(id = project_id, project_name=form.project.data)
+		db.session.add(project)
+		db.session.commit()
+		project_home(project_id)
+		
+	project_list = []
+
+	for p in Project.query.all():
+		new_p = {}
+		new_p["id"] = p.id
+		new_p["project_name"] = p.project_name
+		project_list.append(new_p)
+
+	return render_template('projects.html',project_list = project_list, form = form)
+
+
+
+
+
+
 
 # project home page
-@myapp_obj.route("/project", methods =["GET", "POST"])
+@myapp_obj.route("/home/<project_id>", methods =["GET", "POST"])
 @login_required
-def project_home():
+def project_home(project_id):
 	form = TaskForm()
 	print(current_user)
 	if form.validate_on_submit():
 		if form.task.data is None:
 			print('empty')
 		else:
-			task = Tasks(task = form.task.data, priority = 1, user_id = current_user.id)
+			task = Tasks(task = form.task.data, priority = 1,project=project_id, user_id = current_user.id)
 			db.session.add(task)
 			db.session.commit()
 	tasks = []
-	for t in Tasks.query:
+	for t in Tasks.query.filter_by(project=project_id).all():
 		user = User.query.filter_by(id = t.user_id).first()
 		new_t = {}
 		new_t['user'] = user.username
