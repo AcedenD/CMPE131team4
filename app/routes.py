@@ -134,7 +134,6 @@ def project_home(project_id):
 	tasks = []
 
 	for t in Tasks.query.filter_by(project=project_id).all():
-		d
 		user = User.query.filter_by(id = t.user_id).first()
 		new_t = {}
 		new_t['user'] = user.username
