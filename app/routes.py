@@ -102,7 +102,7 @@ def project_home():
 			db.session.add(task)
 			db.session.commit()
 	tasks = []
-	for t in Tasks.query:
+	for t in Tasks.query.filter(Tasks.user_id != None):
 		user = User.query.filter_by(id = t.user_id).first()
 		new_t = {}
 		new_t['user'] = user.username

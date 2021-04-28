@@ -1,6 +1,6 @@
 # CMPE131team4
 
-##Table of contents
+## Table of contents
 * [How to run app](#how-to-run-app)
 * [Dependencies](#dependencies)
 * [External Tools](#external-tools)
@@ -26,4 +26,5 @@
 - Central Calender
 - Track online time
 - User able to change password
-    
+- Delete User Account
+
