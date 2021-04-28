@@ -141,6 +141,14 @@ def project_home(project_id):
 		tasks.append(new_t)
 	return render_template('project_home.html',tasks = tasks, form = form)
 
+# calendar page
+@myapp_obj.route("/calendar", methods =["GET", "POST"])
+@login_required
+def calendar():
+	return render_template('calendar.html')
+
+
+
 
 # user setting
 @myapp_obj.route("/userSetting")

@@ -25,15 +25,12 @@ class User(UserMixin, db.Model):
         return '<User {}>'.format(self.username)
 
 class Project(db.Model):
-    id = db.Column(db.String(256), primary_key=True)
-    project_name = db.Column(db.String(256))
-   
+	id = db.Column(db.String(256), primary_key=True)
+	project_name = db.Column(db.String(256))
 
-    
+	def __repr__(self):
+		return self.project_name
 
-    def __repr__(self):
-        return self.project_name
-    
 
 class Tasks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -41,9 +38,8 @@ class Tasks(db.Model):
     # priority is level 1-3; 1 is least important , and 3 is most important
     priority = db.Column(db.Integer)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    # To find what project each task belongs too 
+    # To find what project each task belongs too
     project = db.Column(db.String(256))
-    
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
