@@ -6,11 +6,9 @@ import uuid
 
 from app import myapp_obj
 from app import db
-<<<<<<< HEAD
-from app.forms import LoginForm, RegisForm, TaskForm, ProjectForm
-=======
-from app.forms import LoginForm, RegisForm, TaskForm, ChangePasswordForm, DeleteAccountForm
->>>>>>> main
+
+from app.forms import LoginForm, RegisForm, ProjectForm, TaskForm, ChangePasswordForm, DeleteAccountForm
+
 
 from app.models import User, Tasks, Project
 
@@ -134,11 +132,9 @@ def project_home(project_id):
 			db.session.add(task)
 			db.session.commit()
 	tasks = []
-<<<<<<< HEAD
+
 	for t in Tasks.query.filter_by(project=project_id).all():
-=======
-	for t in Tasks.query.filter(Tasks.user_id != None):
->>>>>>> main
+		d
 		user = User.query.filter_by(id = t.user_id).first()
 		new_t = {}
 		new_t['user'] = user.username
