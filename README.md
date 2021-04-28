@@ -9,6 +9,10 @@
 ## How to run app
 
 * python3 run.py
+* #If problems occur try recreating the database 
+* python3 
+* >>>from app import db
+* >>>db.create_all()
 
 ## Dependencies
 
