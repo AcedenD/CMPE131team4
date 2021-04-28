@@ -14,6 +14,10 @@ class RegisForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign Up')
 
+class ProjectForm(FlaskForm):
+	project = StringField('Project', validators = [DataRequired()])
+	submit = SubmitField('Add Project')
+
 class TaskForm(FlaskForm):
 	task = StringField('Task', validators = [DataRequired()])
 	submit = SubmitField('Add Task')

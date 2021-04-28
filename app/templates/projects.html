@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+   <div> <3 </div>
+   <h1>Current Projects</h1>
+   {% for task in project_list %}
+   <div>
+       <a href="/home/{{task.id}}"> {{ task.project_name }}  </a>
+   </div>
+   {% endfor %}
+   <form action="" method="post" novalidate>
+       {{ form.hidden_tag() }}
+       <p>
+           {{ form.project.label }}<br>
+           {{ form.project(size=128) }}
+       </p>
+       <p>{{ form.submit() }}</p>
+   </form><br>
+   <div>
+       <button onclick="location.href ='/logout'" type="button">Log out</button>
+   </div>
+
+{% endblock %}

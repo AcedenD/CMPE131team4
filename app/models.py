@@ -24,22 +24,35 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
+class Project(db.Model):
+    id = db.Column(db.String(256), primary_key=True)
+    project_name = db.Column(db.String(256))
+   
+
+    
+
+    def __repr__(self):
+        return self.project_name
+    
 
 class Tasks(db.Model):
-	id = db.Column(db.Integer, primary_key=True)
-	task = db.Column(db.String(256))
-	# priority is level 1-3; 1 is least important , and 3 is most important
-	priority = db.Column(db.Integer)
-	timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    id = db.Column(db.Integer, primary_key=True)
+    task = db.Column(db.String(256))
+    # priority is level 1-3; 1 is least important , and 3 is most important
+    priority = db.Column(db.Integer)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    # To find what project each task belongs too 
+    project = db.Column(db.String(256))
+    
 
-	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-	def __repr__(self):
-		user = User.query.filter_by(id = self.user_id).first()
-		return f'<Task: {self.task} created by {user}>'
+    def __repr__(self):
+        user = User.query.filter_by(id = self.user_id).first()
+        return f'<Task: {self.task} created by {user}>'
 
-	def set_priority(self, priority):
-		self.priority = priority
+    def set_priority(self, priority):
+        self.priority = priority
 
 
 
