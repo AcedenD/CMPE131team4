@@ -23,3 +23,8 @@ class ChangePasswordForm(FlaskForm):
 	new_password = StringField('New Password', validators=[DataRequired()])
 	new_password_confirm = StringField('New Password Confirm', validators=[DataRequired()])
 	submit = SubmitField('Change Password')
+
+class DeleteAccountForm(FlaskForm):
+	password = StringField('Current Password', validators=[DataRequired()])
+	password_confirm = StringField('Current Password Confirm', validators=[DataRequired()])
+	submit = SubmitField('DELETE ACCOUNT FOREVER')

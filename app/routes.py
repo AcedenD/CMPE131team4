@@ -5,7 +5,7 @@ from flask_login import login_required
 
 from app import myapp_obj
 from app import db
-from app.forms import LoginForm, RegisForm, TaskForm, ChangePasswordForm
+from app.forms import LoginForm, RegisForm, TaskForm, ChangePasswordForm, DeleteAccountForm
 
 from app.models import User, Tasks
 
@@ -134,3 +134,22 @@ def change_password():
 			return redirect(url_for('user_setting'))
 
 	return render_template('changePassword.html', form = form)
+
+
+
+# delete account
+@myapp_obj.route('/deleteAccount', methods=['GET','POST'])
+@login_required
+def delete_account():
+	user = User.query.filter_by(id = current_user.id).first()
+	form = DeleteAccountForm()
+	if form.validate_on_submit():
+		if user.check_password(form.password.data) and (form.password.data == form.password_confirm.data):
+			logout_user()
+			db.session.delete(user)
+			db.session.commit()
+			flash('Account Deleted Successfully!')
+			return redirect(url_for('login'))
+		else:
+			flash('Wrong password')
+	return render_template('deleteAccount.html', form = form)
