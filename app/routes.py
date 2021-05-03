@@ -5,10 +5,11 @@ from flask_login import login_required
 
 from app import myapp_obj
 from app import db
-from app.forms import LoginForm, RegisForm, TaskForm
+from app.forms import LoginForm, RegisForm, TaskForm, TimeForm
 
 from app.models import User, Tasks
 
+from datetime import datetime
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
@@ -37,7 +38,7 @@ def login():
         # page in this case.
 		next_page = request.args.get('next')
 		if not next_page or url_parse(next_page).netloc != '':
-			# project is a home page
+			# project is at the home page
 			next_page = url_for('project_home')
 
 		return redirect(next_page)
@@ -109,3 +110,33 @@ def project_home():
 		new_t['task'] = t.task
 		tasks.append(new_t)
 	return render_template('project_home.html',tasks = tasks, form = form)
+
+
+# Time Tracker page
+@myapp_obj.route("/timetracker", methods = ["GET", "POST"])
+@login_required
+def Time_Tracker():
+	form = TimeForm()
+	if form.validate_on_submit():
+		if form.clock_in.data:
+			present = datetime.now()
+			date_string_in = present.strftime("%B %d, %Y    %H:%M:%S")
+			flash('Clocked In @ ' + date_string_in)
+#			db.session.add(date_string_in)
+#			db.session.commit()
+		elif form.clock_out.data:
+			present = datetime.now()
+			date_string_out = present.strftime("%B %d, %Y    %H:%M:%S")
+			flash('Clocked Out @ ' + date_string_out)
+#			db.session.add(date_string_out)
+#			db.session.commit()
+		elif form.past_hours.data:
+			flash('you have worked ' +  ' hours')
+#			past_hours = []
+#			for s in Schedule.query:
+#				new_s = {}
+#				new_s['Clock_in'] = s.clock_in
+#				new_s['Clock_out'] = s.clock_out
+#				past_hours.append(new_s)
+	return render_template('timer.html', form = form)
+

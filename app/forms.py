@@ -17,3 +17,8 @@ class RegisForm(FlaskForm):
 class TaskForm(FlaskForm):
 	task = StringField('Task', validators = [DataRequired()])
 	submit = SubmitField('Add Task')
+
+class TimeForm(FlaskForm):
+	clock_in = SubmitField('Clock In')
+	clock_out = SubmitField('Clock Out')
+	past_hours = SubmitField('Check Hours Worked')

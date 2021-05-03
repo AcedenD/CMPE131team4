@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> TIME TRACKER </h1>
+
+<form action = "" method = "post">
+{{ form.hidden_tag() }}
+
+<p> Please <b> "Clock In" </b> when starting to work on projects and <b> "Clock Out" </b> when you are done. </p>
+<p> You can also check your hours worked through <b> "Check Hours Worked" </b> but cannot alter without permission.</p>
+<p> {{ form.clock_in() }} {{ form.clock_out() }} </p>
+<p> {{ form.past_hours() }} </p>
+
+</form>
+
+{% endblock %}

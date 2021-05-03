@@ -42,9 +42,17 @@ class Tasks(db.Model):
 		self.priority = priority
 
 
-
-
-
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+
+class Schedule(db.Model):
+	id = db.Column(db.Integer, Primary_key = True)
+	Clock_in = db.Column(db.DateTime, index = True, default = datetime.utcnow)
+	Clock_out = db.Column(db.DateTime, index = True, default = datetime.utcnow)
+	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+	def __repr__(self):
+		user = User.query.filter_by(id = self.user_id).first()
+		return f'<{user}        Clock-In:  {self.clock_in}        Clock-Out:  {self.clock_out}>'
