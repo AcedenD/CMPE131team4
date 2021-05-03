@@ -4,6 +4,8 @@ from flask_login import logout_user
 from flask_login import login_required
 import uuid
 
+from datetime import datetime
+
 from app import myapp_obj
 from app import db
 
@@ -125,19 +127,24 @@ def project_home(project_id):
 	form = TaskForm()
 	print(current_user)
 	if form.validate_on_submit():
+		print('test1')
 		if form.task.data is None:
 			print('empty')
 		else:
-			task = Tasks(task = form.task.data, priority = 1,project=project_id, user_id = current_user.id)
+			print('test2')
+			date_time_obj = datetime.strptime(form.due_date.data, '%m/%d/%Y')
+			task = Tasks(task = form.task.data, priority = 1,project=project_id, user_id = current_user.id, due_date = date_time_obj)
 			db.session.add(task)
 			db.session.commit()
 	tasks = []
+	print('test')
 
 	for t in Tasks.query.filter_by(project=project_id).all():
 		user = User.query.filter_by(id = t.user_id).first()
 		new_t = {}
 		new_t['user'] = user.username
 		new_t['task'] = t.task
+		new_t['dueDate'] = t.due_date.date()
 		tasks.append(new_t)
 	return render_template('project_home.html',tasks = tasks, form = form)
 
