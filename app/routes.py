@@ -7,7 +7,7 @@ from app import myapp_obj
 from app import db
 from app.forms import LoginForm, RegisForm, TaskForm, TimeForm
 
-from app.models import User, Tasks
+from app.models import User, Tasks, Schedule
 
 from datetime import datetime
 
@@ -117,26 +117,27 @@ def project_home():
 @login_required
 def Time_Tracker():
 	form = TimeForm()
+	schedule = Schedule()
 	if form.validate_on_submit():
 		if form.clock_in.data:
-			present = datetime.now()
-			date_string_in = present.strftime("%B %d, %Y    %H:%M:%S")
-			flash('Clocked In @ ' + date_string_in)
-#			db.session.add(date_string_in)
-#			db.session.commit()
-		elif form.clock_out.data:
-			present = datetime.now()
-			date_string_out = present.strftime("%B %d, %Y    %H:%M:%S")
-			flash('Clocked Out @ ' + date_string_out)
-#			db.session.add(date_string_out)
-#			db.session.commit()
-		elif form.past_hours.data:
-			flash('you have worked ' +  ' hours')
-#			past_hours = []
-#			for s in Schedule.query:
-#				new_s = {}
-#				new_s['Clock_in'] = s.clock_in
-#				new_s['Clock_out'] = s.clock_out
-#				past_hours.append(new_s)
+			present = datetime.utcnow()
+			schedule.Clock_in = present
+			flash(present)
+			print(schedule)
+		if form.clock_out.data:
+			present = datetime.utcnow()
+			flash(present)
+			schedule.Clock_out = present
+			db.session.add(schedule)
+			db.session.commit()
+			print(schedule)
+		if form.past_hours.data:
+			flash('you have worked hours' + schedule)
+			past_hours = []
+			for s in Schedule.query:
+				new_s = {}
+				new_s['Clock_in'] = s.Clock_in
+				new_s['Clock_out'] = s.Clock_out
+				past_hours.append(new_s)
 	return render_template('timer.html', form = form)
 
