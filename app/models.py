@@ -38,6 +38,7 @@ class Tasks(db.Model):
     # priority is level 1-3; 1 is least important , and 3 is most important
     priority = db.Column(db.Integer)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    due_date = db.Column(db.DateTime, default =datetime.utcnow)
     # To find what project each task belongs too
     project = db.Column(db.String(256))
 
@@ -50,6 +51,8 @@ class Tasks(db.Model):
     def set_priority(self, priority):
         self.priority = priority
 
+    def set_due_date(self, due_date):
+        self.due_date = due_date
 
 
 
