@@ -43,6 +43,9 @@ class Tasks(db.Model):
     project = db.Column(db.String(256))
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user = db.Column(db.String)
+
+    completed = db.Column(db.Boolean)
 
     def __repr__(self):
         user = User.query.filter_by(id = self.user_id).first()

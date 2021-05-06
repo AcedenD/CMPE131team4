@@ -78,20 +78,6 @@ def logout():
 	return redirect(url_for('login'))
 
 
-@myapp_obj.route("/req")
-# user needs to be logged in to see this page
-# needs to be user route!
-@login_required
-# called view function
-def req():
-	return render_template('testReq.html')
-
-
-@myapp_obj.route("/main_hidden_test")
-@login_required
-def main():
-	return render_template('main.html')
-
 #project page
 @myapp_obj.route("/home", methods =["GET", "POST"])
 @login_required
@@ -133,20 +119,51 @@ def project_home(project_id):
 		else:
 			print('test2')
 			date_time_obj = datetime.strptime(form.due_date.data, '%m/%d/%Y')
-			task = Tasks(task = form.task.data, priority = 1,project=project_id, user_id = current_user.id, due_date = date_time_obj)
+			task = Tasks(task = form.task.data, priority = 1,project=project_id, user_id = current_user.id, due_date = date_time_obj, user = current_user.username, completed = False)
 			db.session.add(task)
 			db.session.commit()
-	tasks = []
-	print('test')
+#	tasks = []
+	tasks = Tasks.query.filter_by(project = project_id)
+	print('project: ', project_id )
 
-	for t in Tasks.query.filter_by(project=project_id).all():
-		user = User.query.filter_by(id = t.user_id).first()
-		new_t = {}
-		new_t['user'] = user.username
-		new_t['task'] = t.task
-		new_t['dueDate'] = t.due_date.date()
-		tasks.append(new_t)
+#	for t in Tasks.query.filter_by(project=project_id).all():
+#		user = User.query.filter_by(id = t.user_id).first()
+#		new_t = {}
+#		new_t['user'] = user.username
+#		new_t['task'] = t.task
+#		new_t['dueDate'] = t.due_date.date()
+#		tasks.append(new_t)
 	return render_template('project_home.html',tasks = tasks, form = form)
+
+
+# detele task
+@myapp_obj.route("/deleteTask/<task_id>/<project_id>", methods =["GET", "POST"])
+@login_required
+def delete_task(task_id, project_id):
+	print(project_id)
+	task = Tasks.query.filter_by(id = task_id, project = project_id).first()
+	if task is not None:
+		db.session.delete(task)
+		db.session.commit()
+
+	return redirect(url_for('project_home', project_id = project_id))
+
+
+#prioritize task
+@myapp_obj.route("/prioritizeTask/<task_id>/<project_id>", methods =["GET", "POST"])
+@login_required
+def change_priority(task_id, project_id):
+    print(project_id)
+    task = Tasks.query.filter_by(id = task_id, project = project_id).first()
+    if task is not None:
+        task.priority = 3
+        db.session.add(task)
+        db.session.commit()
+
+    return redirect(url_for('project_home', project_id = project_id))
+
+
+
 
 # calendar page
 @myapp_obj.route("/calendar", methods =["GET", "POST"])
@@ -161,8 +178,6 @@ def calendar():
 @myapp_obj.route("/userSetting")
 @login_required
 def user_setting():
-	print(current_user)
-	print(current_user.id)
 	return render_template('userSetting.html')
 
 

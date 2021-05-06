@@ -26,7 +26,7 @@
 
 	<nav  class="navbar navbar-light" id="header">
     <a class="navbar-brand" onclick="location.href ='/home'" >
-        <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/San_Jose_State_Spartans_logo.svg/1200px-San_Jose_State_Spartans_logo.svg.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
     </a>
 
     <form class="d-flex" >
@@ -46,7 +46,7 @@
 
 	<body class='mt-5 pt-2'>
 	<div class='mt-5'>
-		<h1>hello {{current_user.username}} </h1>
+		<h1><b>hello {{current_user.username}}</b> </h1>
 	</div>
 	
 	<div class="container">
@@ -54,9 +54,6 @@
         <a onclick="location.href='/deleteAccount'" class="list-group-item list-group-item-action">Delete account</a>
     </div>
 
-	<div>
-    	<button onclick="location.href ='/logout'" type="button">Log out</button>
-	</div>
 	</body>
 
 

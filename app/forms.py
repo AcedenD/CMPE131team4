@@ -20,7 +20,7 @@ class ProjectForm(FlaskForm):
 
 class TaskForm(FlaskForm):
 	task = StringField('Task', validators = [DataRequired()])
-	due_date = StringField('Due Date', validators = [DataRequired()])
+	due_date = StringField('Due Date  (MM/DD/YYYY)', validators = [DataRequired()])
 	submit = SubmitField('Add Task')
 
 class ChangePasswordForm(FlaskForm):

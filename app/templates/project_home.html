@@ -10,16 +10,30 @@
       			<th scope="col">User</th>
       			<th scope="col">Task</th>
       			<th scope="col">Due Date</th>
+				<th scope="col">Priority</th>
+				<th scope="col">Completed</th>
+				<th scope="col">Function</th>
 			</tr>
 		</thead>
 		 {% for task in tasks %}
-
 		<tbody>
 			<tr>
       			<th scope="row">{{ loop.index }}</th>
       			<td>{{ task.user }}</td>
       			<td>{{ task.task}}</td>
-     		 	<td>{{ task.dueDate }}</td>
+     		 	<td>{{ task.due_date }}</td>
+				{% if task.priority  == 3 %}
+					<td>
+						<p class="text-danger"><b>{{ task.priority }}</b></p>
+					</td>
+				{% else %}
+					<td>{{ task.priority }}</td>
+				{% endif %}
+				<td>{{ task.completed }}</td>
+				<td>
+					<button class="btn btn-warning" onclick="location.href ='/prioritizeTask/{{task.id}}/{{task.project}}'" type="button">Prioritize Task</button>
+					<button class="btn btn-danger" onclick="location.href ='/deleteTask/{{task.id}}/{{task.project}}'" type="button">Delete Task</button>
+				</td>
     		</tr>
 		</tbody>
 		{% endfor %}
@@ -36,9 +50,6 @@
 		</p>
         <p>{{ form.submit() }}</p>
     </form><br>
-	<div>
-        <button onclick="location.href ='/logout'" type="button">Log out</button>
-    </div>
 	</body>
 
 {% endblock %}
