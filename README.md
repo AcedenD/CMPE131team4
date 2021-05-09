@@ -9,7 +9,7 @@
 ## How to run app
 
 * python3 run.py
-* #If problems occur try recreating the database 
+* # If problems occur try recreating the database 
 * python3 
 * >>>from app import db
 * >>>db.create_all()
@@ -21,14 +21,16 @@
 ## External Tools
 
 * SQLite Database viewer https://sqliteonline.com/
+* https://inloop.github.io/sqlite-viewer/
 
 ## Use Cases
  
-- Create account
-- Create project
-- Create task
-- Central Calender
-- Track online time
-- User able to change password
-- Delete User Account
-
+- 1.Create account
+- 2.Create project
+- 3.Create task
+- 4.Central Calender
+- 5.Track online time
+- 6.User able to change password
+- 7.Delete User Account
+- 8.Set priority for task
+- 9.Delete Task
