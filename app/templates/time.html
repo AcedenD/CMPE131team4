@@ -2,11 +2,24 @@
 
 {% block content %}
 	<body class="mt-5 pt-5">
- 
+ 	<table class="table">
+        <thead>
+            <tr>
+				<th scope=="col">#</th>
+                <th scope="col">Login</th>
+                <th scope="col">Logout</th>
+				<th scope="col">Total Time</th>
+			</tr>
+		</thead>       
    {% for schedule in schedule_list %}
-   <div>
-       <div> {{ schedule }}  </div>
-   </div>
+	<tbody>
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+				<td>{{ schedule.login }}</td>
+                <td>{{ schedule.logout }}</td>
+                <td>{{ schedule.total_time}}</td>
+            </tr>
+        </tbody>
    {% endfor %}
    
 	</body>

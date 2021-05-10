@@ -116,11 +116,11 @@ def home():
 def timetracker():
 	form = ProjectForm()
 	print(current_user.last_login)
-	schedule_list = []
-	for p in Schedule.query.all():
-		schedule_list.append(p)
-	print(schedule_list)
-	
+	schedule_list = Schedule.query.all()
+#	for p in Schedule.query.all():
+#		schedule_list.append(p)
+#	print(schedule_list)
+
 
 	return render_template('time.html',schedule_list = schedule_list)
 
@@ -138,7 +138,7 @@ def project_home(project_id):
 	form = TaskForm()
 	print(current_user)
 	if form.validate_on_submit():
-		
+
 		if form.task.data is None:
 			print('empty')
 		else:
@@ -150,7 +150,7 @@ def project_home(project_id):
 #	tasks = []
 	tasks = Tasks.query.filter_by(project = project_id)
 	print('project: ', project_id )
-
+	current_project =  Project.query.filter_by(id = project_id).first().project_name
 #	for t in Tasks.query.filter_by(project=project_id).all():
 #		user = User.query.filter_by(id = t.user_id).first()
 #		new_t = {}
@@ -158,7 +158,7 @@ def project_home(project_id):
 #		new_t['task'] = t.task
 #		new_t['dueDate'] = t.due_date.date()
 #		tasks.append(new_t)
-	return render_template('project_home.html',tasks = tasks, form = form)
+	return render_template('project_home.html',tasks = tasks, form = form, current_project = current_project)
 
 
 # detele task
@@ -182,6 +182,20 @@ def change_priority(task_id, project_id):
     task = Tasks.query.filter_by(id = task_id, project = project_id).first()
     if task is not None:
         task.priority = 3
+        db.session.add(task)
+        db.session.commit()
+
+    return redirect(url_for('project_home', project_id = project_id))
+
+
+#complete task
+@myapp_obj.route("/completeTask/<task_id>/<project_id>", methods =["GET", "POST"])
+@login_required
+def complete_task(task_id, project_id):
+    print(project_id)
+    task = Tasks.query.filter_by(id = task_id, project = project_id).first()
+    if task is not None:
+        task.completed = True
         db.session.add(task)
         db.session.commit()
 
