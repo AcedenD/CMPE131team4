@@ -12,7 +12,7 @@ from app import db
 from app.forms import LoginForm, RegisForm, ProjectForm, TaskForm, ChangePasswordForm, DeleteAccountForm
 
 
-from app.models import User, Tasks, Project
+from app.models import User, Tasks, Project, Schedule
 
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
@@ -21,6 +21,8 @@ def login():
 		return redirect("/home") 
 	form = LoginForm()
 	if form.validate_on_submit():
+		current_user.last_login = datetime.utcnow()
+		db.session.commit()
         # User.query.filter_by() returns a list from the User table
         # first() returns first element of the list
         # the form.username.data is getting the info the user submitted in the form
@@ -59,6 +61,7 @@ def regis():
 		user = User.query.filter_by(username=form.username.data).first()
 		if user is None:
 			u = User(username=form.username.data, email=form.email.data)
+			u.last_login = datetime.utcnow()
 			u.set_password(password=form.password.data)
 			db.session.add(u)
 			db.session.commit()
@@ -74,6 +77,14 @@ def regis():
 @myapp_obj.route('/logout')
 @login_required
 def logout():
+	current_user.last_logout = datetime.utcnow()
+	print(current_user.last_logout)
+	print(current_user.last_login)
+	print(current_user.last_logout- current_user.last_login)
+	schedule = Schedule(user_id=current_user.id, total_time=(current_user.last_logout - current_user.last_login),login=current_user.last_login,logout=current_user.last_logout)
+	db.session.add(schedule)
+	db.session.commit()
+
 	logout_user()
 	return redirect(url_for('login'))
 
@@ -100,6 +111,20 @@ def home():
 
 	return render_template('projects.html',project_list = project_list, form = form)
 
+@myapp_obj.route("/time", methods =["GET", "POST"])
+@login_required
+def timetracker():
+	form = ProjectForm()
+	print(current_user.last_login)
+	schedule_list = []
+	for p in Schedule.query.all():
+		schedule_list.append(p)
+	print(schedule_list)
+	
+
+	return render_template('time.html',schedule_list = schedule_list)
+
+
 
 
 
@@ -113,7 +138,7 @@ def project_home(project_id):
 	form = TaskForm()
 	print(current_user)
 	if form.validate_on_submit():
-		print('test1')
+		
 		if form.task.data is None:
 			print('empty')
 		else:
