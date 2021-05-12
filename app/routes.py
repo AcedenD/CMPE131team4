@@ -56,7 +56,7 @@ def login():
 @myapp_obj.route("/regis", methods=['GET','POST'])
 def regis():
 	if current_user.is_authenticated:
-		return "<h1>you already logged in</h1>" 
+		return "<h1>you already logged in</h1>"
 	form = RegisForm()
 	if form.validate_on_submit():
 		user = User.query.filter_by(username=form.username.data).first()
@@ -101,7 +101,7 @@ def home():
 		db.session.add(project)
 		db.session.commit()
 		project_home(project_id)
-		
+
 	project_list = []
 
 	for p in Project.query.all():
@@ -140,10 +140,14 @@ def project_home(project_id):
 			print('empty')
 		else:
 			print('test2')
-			date_time_obj = datetime.strptime(form.due_date.data, '%m/%d/%Y')
-			task = Tasks(task = form.task.data, priority = 1,project=project_id, user_id = current_user.id, due_date = date_time_obj, user = current_user.username, completed = False)
-			db.session.add(task)
-			db.session.commit()
+			try:
+				date_time_obj = datetime.strptime(form.due_date.data, '%m/%d/%Y')
+			except ValueError:
+				flash('Due date is in the wrong format')
+			else:
+				task = Tasks(task = form.task.data, priority = 1,project=project_id, user_id = current_user.id, due_date = date_time_obj, user = current_user.username, completed = False)
+				db.session.add(task)
+				db.session.commit()
 #	tasks = []
 	tasks = Tasks.query.filter_by(project = project_id)
 	print('project: ', project_id )
@@ -172,9 +176,14 @@ def change_priority(task_id, project_id):
     print(project_id)
     task = Tasks.query.filter_by(id = task_id, project = project_id).first()
     if task is not None:
-        task.priority = 3
-        db.session.add(task)
-        db.session.commit()
+        if task.priority == 1:
+           task.priority = 3
+           db.session.add(task)
+           db.session.commit()
+        else:
+           task.priority = 1
+           db.session.add(task)
+           db.session.commit()
 
     return redirect(url_for('project_home', project_id = project_id))
 
@@ -186,9 +195,15 @@ def complete_task(task_id, project_id):
     print(project_id)
     task = Tasks.query.filter_by(id = task_id, project = project_id).first()
     if task is not None:
-        task.completed = True
-        db.session.add(task)
-        db.session.commit()
+        if task.completed == False:
+           task.completed = True
+           db.session.add(task)
+           db.session.commit()
+        else:
+           task.completed = False
+           db.session.add(task)
+           db.session.commit()
+
 
     return redirect(url_for('project_home', project_id = project_id))
 

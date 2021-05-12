@@ -29,7 +29,13 @@
 				{% else %}
 					<td>{{ task.priority }}</td>
 				{% endif %}
-				<td>{{ task.completed }}</td>
+				{% if task.completed  == True %}
+                    <td>
+                        <p class="text-success"><b>{{ task.completed }}</b></p>
+                    </td>
+                {% else %}
+                    <td>{{ task.completed }}</td>
+                {% endif %}
 				<td>
 					<button class="btn btn-warning" onclick="location.href ='/prioritizeTask/{{task.id}}/{{task.project}}'" type="button">Prioritize Task</button>
 					<button class="btn btn-success" onclick="location.href ='/completeTask/{{task.id}}/{{task.project}}'" type="button">Complete Task</button>
