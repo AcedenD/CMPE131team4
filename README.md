@@ -2,7 +2,7 @@
 
 ## Table of contents
 * [How to run app](#how-to-run-app)
-* [General instructions for website](#general instructions for website)
+* [General instructions for website](#general-instructions-for-website)
 * [Dependencies](#dependencies)
 * [External Tools](#external-tools)
 * [Use Case](#use-cases)
