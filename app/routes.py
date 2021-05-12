@@ -116,7 +116,7 @@ def home():
 def timetracker():
 	form = ProjectForm()
 	print(current_user.last_login)
-	schedule_list = Schedule.query.all()
+	schedule_list = Schedule.query.filter_by(user_id = current_user.id)
 #	for p in Schedule.query.all():
 #		schedule_list.append(p)
 #	print(schedule_list)
@@ -192,7 +192,7 @@ def complete_task(task_id, project_id):
     return redirect(url_for('project_home', project_id = project_id))
 
 
-#complete task
+#reassign task
 @myapp_obj.route("/reassignedTask/<task_id>/<project_id>", methods =["GET", "POST"])
 @login_required
 def reassign_task(task_id, project_id):
