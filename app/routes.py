@@ -21,8 +21,6 @@ def login():
 		return redirect("/home") 
 	form = LoginForm()
 	if form.validate_on_submit():
-		current_user.last_login = datetime.utcnow()
-		db.session.commit()
         # User.query.filter_by() returns a list from the User table
         # first() returns first element of the list
         # the form.username.data is getting the info the user submitted in the form
@@ -36,7 +34,10 @@ def login():
         # let flask_login library know what user logged int
         # it also means that their password was correct
 		login_user(user, remember=form.remember_me.data)
-
+		current_user.last_login = datetime.utcnow()
+		db.session.add(current_user)
+		db.session.commit()
+		print(current_user.last_login)
         # return to page before user got asked to login
         # for example, if user tried to access a wedpage called profile, but since they
         # weren't logged in they would get redirected to login page. After they log in
@@ -61,7 +62,7 @@ def regis():
 		user = User.query.filter_by(username=form.username.data).first()
 		if user is None:
 			u = User(username=form.username.data, email=form.email.data)
-			u.last_login = datetime.utcnow()
+			#u.last_login = datetime.utcnow()
 			u.set_password(password=form.password.data)
 			db.session.add(u)
 			db.session.commit()
@@ -78,8 +79,8 @@ def regis():
 @login_required
 def logout():
 	current_user.last_logout = datetime.utcnow()
-	print(current_user.last_logout)
-	print(current_user.last_login)
+	print("logout at: ", current_user.last_logout)
+	print("login at: ", current_user.last_login)
 	print(current_user.last_logout- current_user.last_login)
 	schedule = Schedule(user_id=current_user.id, total_time=(current_user.last_logout - current_user.last_login),login=current_user.last_login,logout=current_user.last_logout)
 	db.session.add(schedule)
