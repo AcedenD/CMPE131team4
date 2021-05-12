@@ -9,7 +9,7 @@ from datetime import datetime
 from app import myapp_obj
 from app import db
 
-from app.forms import LoginForm, RegisForm, ProjectForm, TaskForm, ChangePasswordForm, DeleteAccountForm
+from app.forms import LoginForm, RegisForm, ProjectForm, TaskForm, ChangePasswordForm, DeleteAccountForm, ReassignedTask
 
 
 from app.models import User, Tasks, Project, Schedule
@@ -126,15 +126,11 @@ def timetracker():
 
 
 
-
-
-
-
-
 # project home page
 @myapp_obj.route("/home/<project_id>", methods =["GET", "POST"])
 @login_required
 def project_home(project_id):
+	reassign = ReassignedTask()
 	form = TaskForm()
 	print(current_user)
 	if form.validate_on_submit():
@@ -151,14 +147,8 @@ def project_home(project_id):
 	tasks = Tasks.query.filter_by(project = project_id)
 	print('project: ', project_id )
 	current_project =  Project.query.filter_by(id = project_id).first().project_name
-#	for t in Tasks.query.filter_by(project=project_id).all():
-#		user = User.query.filter_by(id = t.user_id).first()
-#		new_t = {}
-#		new_t['user'] = user.username
-#		new_t['task'] = t.task
-#		new_t['dueDate'] = t.due_date.date()
-#		tasks.append(new_t)
-	return render_template('project_home.html',tasks = tasks, form = form, current_project = current_project)
+
+	return render_template('project_home.html',tasks = tasks, form = form, reassign = reassign, current_project = current_project)
 
 
 # detele task
@@ -200,6 +190,28 @@ def complete_task(task_id, project_id):
         db.session.commit()
 
     return redirect(url_for('project_home', project_id = project_id))
+
+
+#complete task
+@myapp_obj.route("/reassignedTask/<task_id>/<project_id>", methods =["GET", "POST"])
+@login_required
+def reassign_task(task_id, project_id):
+	reassign = ReassignedTask()
+	if reassign.validate_on_submit():
+		user = User.query.filter_by(username = reassign.user.data).first()
+		if user is not None:
+			task = Tasks.query.filter_by(id = task_id, project = project_id).first()
+			print(user,task)
+			task.user_id = user.id
+			task.user = user.username
+			db.session.add(task)
+			db.session.commit()
+		else:
+			flash('enter an existing user')
+
+	return redirect(url_for('project_home', project_id = project_id))
+
+
 
 
 

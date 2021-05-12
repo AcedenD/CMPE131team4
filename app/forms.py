@@ -23,6 +23,11 @@ class TaskForm(FlaskForm):
 	due_date = StringField('Due Date  (MM/DD/YYYY)', validators = [DataRequired()])
 	submit = SubmitField('Add Task')
 
+class ReassignedTask(FlaskForm):
+    user = StringField('User', validators = [DataRequired()])
+    submit = SubmitField('Reassigned Task')
+
+
 class ChangePasswordForm(FlaskForm):
 	old_password = StringField('Current Password', validators=[DataRequired()])
 	new_password = StringField('New Password', validators=[DataRequired()])
