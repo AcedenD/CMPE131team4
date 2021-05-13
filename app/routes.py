@@ -4,7 +4,7 @@ from flask_login import logout_user
 from flask_login import login_required
 import uuid
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from app import myapp_obj
 from app import db
@@ -34,7 +34,8 @@ def login():
         # let flask_login library know what user logged int
         # it also means that their password was correct
 		login_user(user, remember=form.remember_me.data)
-		current_user.last_login = datetime.utcnow()
+		current_t = datetime.utcnow()
+		current_user.last_login = current_t - timedelta(microseconds=current_t.microsecond)
 		db.session.add(current_user)
 		db.session.commit()
 		print(current_user.last_login)
@@ -78,10 +79,11 @@ def regis():
 @myapp_obj.route('/logout')
 @login_required
 def logout():
-	current_user.last_logout = datetime.utcnow()
+	current_t = datetime.utcnow()
+	current_user.last_logout = current_t - timedelta(microseconds=current_t.microsecond)
 	print("logout at: ", current_user.last_logout)
 	print("login at: ", current_user.last_login)
-	print(current_user.last_logout- current_user.last_login)
+	print("session time: ", current_user.last_logout- current_user.last_login)
 	schedule = Schedule(user_id=current_user.id, total_time=(current_user.last_logout - current_user.last_login),login=current_user.last_login,logout=current_user.last_logout)
 	db.session.add(schedule)
 	db.session.commit()
@@ -112,18 +114,22 @@ def home():
 
 	return render_template('projects.html',project_list = project_list, form = form)
 
+#show time log
 @myapp_obj.route("/time", methods =["GET", "POST"])
 @login_required
 def timetracker():
 	form = ProjectForm()
 	print(current_user.last_login)
 	schedule_list = Schedule.query.filter_by(user_id = current_user.id)
-#	for p in Schedule.query.all():
-#		schedule_list.append(p)
-#	print(schedule_list)
-
-
-	return render_template('time.html',schedule_list = schedule_list)
+	if schedule_list.first() is None:
+		return render_template('time.html',schedule_list = schedule_list)
+	else:
+		total_t = schedule_list.first().total_time
+		for time in schedule_list:
+			total_t = total_t + time.total_time
+		total_t -= schedule_list.first().total_time
+		#print(total_t)
+		return render_template('time.html',schedule_list = schedule_list, total_t = total_t)
 
 
 
