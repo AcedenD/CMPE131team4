@@ -234,21 +234,23 @@ def reassign_task(task_id, project_id):
 @myapp_obj.route("/allTasks", methods =["GET", "POST"])
 @login_required
 def all_tasks():
-    reassign = ReassignedTask()
-    if reassign.validate_on_submit():
-        user = User.query.filter_by(username = reassign.user.data).first()
-        if user is not None:
-            task = Tasks.query.filter_by(id = task_id, project = project_id).first()
-            print(user,task)
-            task.user_id = user.id
-            task.user = user.username
-            db.session.add(task)
-            db.session.commit()
-        else:
-            flash('enter an existing user')
-
     tasks = Tasks.query.all()
-    return render_template('all_task.html', tasks = tasks, reassign = reassign)
+    return render_template('all_task.html', tasks = tasks)
+
+
+
+#delete all completed tasks
+@myapp_obj.route("/deleteCompleted", methods =["GET", "POST"])
+@login_required
+def deletedCompleted():
+	tasks = Tasks.query.filter_by(completed = True)
+	for task in tasks:
+		db.session.delete(task)
+		db.session.commit()
+		print("deleted: ", task)
+
+	tasks = Tasks.query.all()
+	return render_template('all_task.html', tasks = tasks)
 
 
 

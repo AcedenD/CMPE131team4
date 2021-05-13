@@ -5,7 +5,7 @@
     <h1>Current Tasks for {{ current_project }}</h1>
 	<table class="table">
 		<thead>
-			<tr>
+			<tr class="text-center">
       			<th scope="col">#</th>
       			<th scope="col">User</th>
       			<th scope="col">Task</th>
@@ -36,14 +36,14 @@
                 {% else %}
                     <td>{{ task.completed }}</td>
                 {% endif %}
-				<td>
+				<td class="text-left">
 					<button class="btn btn-warning" onclick="location.href ='/prioritizeTask/{{task.id}}/{{task.project}}'" type="button">Prioritize Task</button>
 					<button class="btn btn-success" onclick="location.href ='/completeTask/{{task.id}}/{{task.project}}'" type="button">Complete Task</button>
 					<button class="btn btn-danger" onclick="location.href ='/deleteTask/{{task.id}}/{{task.project}}'" type="button">Delete Task</button>
 					<form action="/reassignedTask/{{task.id}}/{{task.project}}" method="post">
 						{{ reassign.hidden_tag() }}
        					 <p>
-            				<h2>Reassign task to:</h2><br>
+             				<h2>Reassign task to:</h2><br>
             				{{ reassign.user(size=128) }}
 						</p>
         				<p>{{ reassign.submit() }}</p>

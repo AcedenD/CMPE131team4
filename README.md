@@ -54,4 +54,5 @@
 - 9.Delete Task
 - 10.User reassign task
 - 11.Create multiple projects
-- 12.View all tasks page
+- 12.View all tasks page (able to click on task to visit project link)
+- 13.Delete all completed tasks
