@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<body class="mt-5 pt-5">
+    <h1>All current tasks</h1>
+	<table class="table">
+		<thead>
+			<tr>
+      			<th scope="col">#</th>
+      			<th scope="col">User</th>
+      			<th scope="col">Task</th>
+      			<th scope="col">Due Date</th>
+				<th scope="col">Priority</th>
+				<th scope="col">Completed</th>
+			</tr>
+		</thead>
+		 {% for task in tasks %}
+		<tbody>
+			<tr>
+      			<th scope="row">{{ loop.index }}</th>
+      			<td>{{ task.user }}</td>
+      			<td>{{ task.task}}</td>
+     		 	<td>{{ task.due_date }}</td>
+				{% if task.priority  == 3 %}
+					<td>
+						<p class="text-danger"><b>{{ task.priority }}</b></p>
+					</td>
+				{% else %}
+					<td>{{ task.priority }}</td>
+				{% endif %}
+				{% if task.completed  == True %}
+                    <td>
+                        <p class="text-success"><b>{{ task.completed }}</b></p>
+                    </td>
+                {% else %}
+                    <td>{{ task.completed }}</td>
+                {% endif %}
+    		</tr>
+		</tbody>
+		{% endfor %}
+
+{% endblock %}

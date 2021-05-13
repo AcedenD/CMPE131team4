@@ -230,6 +230,27 @@ def reassign_task(task_id, project_id):
 
 
 
+# all tasks page
+@myapp_obj.route("/allTasks", methods =["GET", "POST"])
+@login_required
+def all_tasks():
+    reassign = ReassignedTask()
+    if reassign.validate_on_submit():
+        user = User.query.filter_by(username = reassign.user.data).first()
+        if user is not None:
+            task = Tasks.query.filter_by(id = task_id, project = project_id).first()
+            print(user,task)
+            task.user_id = user.id
+            task.user = user.username
+            db.session.add(task)
+            db.session.commit()
+        else:
+            flash('enter an existing user')
+
+    tasks = Tasks.query.all()
+    return render_template('all_task.html', tasks = tasks, reassign = reassign)
+
+
 
 
 # calendar page
