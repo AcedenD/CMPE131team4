@@ -18,3 +18,27 @@ file for their projects for a description and sends a real-time
 notification to users about the tasks and due dates. The task manager
 portal allows features such as creating account for the user, allowing
 user to change password, and delete user account.
+
+
+TABLE OF CONTENT:
+1) How to download the app.
+2) How to run app.
+3) General instructions for using the website.
+4) Dependencies.
+5) External tools.
+6) Use cases.
+7) Navigating through project and how to use the app.
+8) Credits.
+9) License.
+10) How to contribute to the project.
+11) Tests for the project.
+12) Conclusion.
+13) Contact us.
+
+
+HOW TO DOWNLOAD THE APP:
+Download or pull the files from AcedenD/CMPE131team4 through github at 
+a local repository on your machine.
+
+Github link to clone project: https://github.com/AcedenD/CMPE131team4.git 
+
