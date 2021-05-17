@@ -107,3 +107,33 @@ and end time for the task to be scheduled.
 	 * Delete account - Enter current password, confirm, and then click "DELETE ACCOUNT FOREVER" button.
 	 * Time Log - Shows the login and log out time of the user along with the total time worked online.
 *First time users would see a blank space as they have logged in for the first time and the database is empty. 
+
+## CREDITS:
+Thanks to the members for making the project a success:
+
+	1) Aden Dang - https://github.com/AcedenD
+	2) Aishwar Gupta - https://github.com/Aishwar-Gupta
+	3) Jugad Khajuria - https://github.com/JugadK
+	4) Khanh Nguyen - https://github.com/khanhng21
+
+
+## LICENSE:
+Proprietary license.
+*The work cannot be modified or redistributed without permission.
+
+
+## HOW TO CONTRIBUTE TO THE PROJECT:
+In order to contribute to the project or to report bugs use github through the link below and open a pull request with a description message 
+and one of the members would look into the issue.
+
+github link: https://github.com/AcedenD/CMPE131team4.git
+
+*Steps involved:
+	* Fork the repository on your local machine
+	* Add the necessary changes to contribute to the project or bugs report
+	* Stage the files to the local repository - git add .
+	* Commit the changes to the local repository with appropriate message - git commit -m '<message>'
+	* Open a pull request - git pull
+
+*Members would look into the issue within a week.
+
