@@ -1,12 +1,12 @@
 ## USE CASE DESCRIPTIONS
 
-*Product Name: Task Managerinator
+Product Name: Task Managerinator
 
-*Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
 
-*Use Case Name: Create account
+Use Case Name: Create account
 
-*Date: 17 May, 2021
+Date: 17 May, 2021
 
 ## Summary
 The users should be able to create an account on the portal so they can use other features and save their future works and progress in one dashboard. 
@@ -38,8 +38,48 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
-2.Create project
-	* Users can create new projects to combine a set of tasks to be accomplished and separate projects so the tasks dont mix.
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Create project
+
+Date: 17 May, 2021
+
+## Summary
+The users should be able to create projects to make a collection of tasks required for a particular project so the tasks do not mix.  
+The projects will help keep track of all the schedules for a particular set of tasks and will allow the user to schedule tasks.
+
+## Actors
+* Customers/Users
+* System software
+
+## Preconditions
+* Precondition 1: The user must be logged in to their portal.
+* Precondition 2: The user must write a project name in the text field.
+* Precondition 3: The user should click "Add project" button.
+* Precondition 4: The project name should not match with an existing project in the data base.
+
+## Triggers
+* The user must enter a project name in the text field.
+* The user must click the "Add project" button for creating a new project.
+
+## Primary Sequence
+* Step 1: Check if the user is logged in to their account. 
+* Step 2: Check if the user entered a valid project name in the text field that does not exit in the data base.
+* Step 3: Create a new project and store it in the data base with the specified attributes.
+
+## Primary Postconditions
+* Postcondition 1: A new project is created and stored in the data base.
+* Postcondition 2: Display the new project on the home page.
+
+## Alternate Sequence
+* NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 3.Create task
 	* Users can create tasks which can be scheduled on a particular date and time with set priority to track deadlines.
