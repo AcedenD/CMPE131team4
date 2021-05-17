@@ -1,13 +1,35 @@
 # CMPE131team4
 
+## Task Managerinator
+
+## Description
+
+The task manager application helps the users track multiple projects with set priorities and allows users to assign tasks to other users.
+Users can create new projects with assigned tasks, delete tasks or delete when tasks are marked as completed and set priority for each tasks. 
+The application can list all the tasks so the user can click on the desired task to visit project link. The application features a central 
+calendar to keep a visual track of the project tasks and due dates once the tasks are created. It also features an online time tracker, 
+which logs in the user when they log in to their portal and log out when they log out of the portal. The feature can be used by supervisors 
+to track the payroll and help users track their working time on projects. The application allows the user to add a read me file for their 
+projects for a description and sends a real-time notification to users about the tasks and due dates. The task manager portal allows 
+features such as creating account for the user, allowing user to change password, and delete user account.
+
 ## Table of contents
+
+* [How to download the app](#how-to-download-the-app)
 * [How to run app](#how-to-run-app)
 * [General instructions for website](#general-instructions-for-website)
 * [Dependencies](#dependencies)
 * [External Tools](#external-tools)
 * [Use Case](#use-cases)
+* [Navigating through project and how to use the app](#navigating-through-project-and-how-to-use-the-app)
+* [Credits](#credits)
+* [License](#License)
+* [How to contribute to the project](#how-to-contribute-to-the-project)
+* [Tests for the project](#tests-for-the-project)
+* [Conclusion](#conclusion)
+* [Contact us](#contact-us)
 
-## HOW TO DOWNLOAD THE APP:
+## How to download the app
 
 Download or pull the files from AcedenD/CMPE131team4 through github at 
 a local repository on your machine.
@@ -73,7 +95,7 @@ The tools were used to view the database items:
 - 14.Add readme to projects
 - 15.Real-Time notifications
 
-## NAVIGATING THROUGH PROJECT AND HOW TO USE THE APP:
+## Navigating through project and how to use the app
 
 First time users should follow these steps to better understand the app and get familiar:
 1) When running for the first time the user must create an account through "Sign up" button.
@@ -117,7 +139,7 @@ and end time for the task to be scheduled.
 	 * Time Log - Shows the login and log out time of the user along with the total time worked online.
 *First time users would see a blank space as they have logged in for the first time and the database is empty. 
 
-## CREDITS:
+## Credits
 
 Thanks to the members for making the project a success:
 
@@ -127,12 +149,12 @@ Thanks to the members for making the project a success:
 	4) Khanh Nguyen - https://github.com/khanhng21
 
 
-## LICENSE:
+## License
 
 Proprietary license.
 *The work cannot be modified or redistributed without permission.
 
-## HOW TO CONTRIBUTE TO THE PROJECT:
+## How to contribute to the project
 
 In order to contribute to the project or to report bugs use github through the link below and open a pull request with a description message 
 and one of the members would look into the issue.
@@ -148,7 +170,7 @@ github link: https://github.com/AcedenD/CMPE131team4.git
 
 *Members would look into the issue within a week.
 
-## TESTS FOR THE PROJECT:
+## Tests for the project
 
 The files in the project includes two files named "user_test.py" and "task_test.py" which test the user and the task functions respectively. 
 It does so by passing a demo user and task object and check to match in the database. 
@@ -161,7 +183,7 @@ The commands above depends on the version of python running on local machine.
 If using python 3 then use the above command else change accordingly.
 On the local repository, the user can pass their own values for the user object and run the tests.
 
-## CONCLUSION:
+## CONCLUSION
 
 The application is used to track online projects, personal or work, and manage resources to stay on top of the requirements.
 The project offers easy visualizations of projects through text and calendars to track deadlines and total time worked online. 
@@ -170,13 +192,13 @@ Multiple users can collaborate over multiple projects by assigning tasks accordi
 The unique features and easy user interface makes the app stand out in the community and help users and supervisors manage their projects.
 
 
-## CONTACT US:
+## CONTACT US
 
 Please use DISCORD or EMAIL to contact us:
-	* Aden Dang - adendd - adendd@taskmanagerinator.com
-	* Aishwar Gupta - Aishwar - aishwar@taskmanagerinator.com
-	* Jugad Khajuria - Jewgad - jewgad@taskmanagerinator.com
-	* Khanh Nguyen - Khanh Nguyen - khanh_nguyen@taskmanagerinator.com
+* Aden Dang - adendd - adendd@taskmanagerinator.com
+* Aishwar Gupta - Aishwar - aishwar@taskmanagerinator.com
+* Jugad Khajuria - Jewgad - jewgad@taskmanagerinator.com
+* Khanh Nguyen - Khanh Nguyen - khanh_nguyen@taskmanagerinator.com
 
 - You can also email your concerns at concerns@taskmanagerinator.com
 
