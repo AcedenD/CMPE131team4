@@ -128,10 +128,10 @@ USE CASES:
 
 
 NAVIGATING THROUGH PROJECT AND HOW TO USE THE APP:
-First time users should follow these steps to better understand the app 
-and get familiar:
-1) When running for the first time the user must create an account through 
-"Sign up" button.
+First time users should follow these steps to better understand the 
+app and get familiar:
+1) When running for the first time the user must create an account 
+through "Sign up" button.
 	Enter your Username
 	Enter your Email address
 	Enter your Password
@@ -143,10 +143,11 @@ which users can use for future.
 	Enter Password
 and click "login" which will redirect the user to the home page.
 
-3) The home page lists the projects that were created and is blank if there 
-are no projects. The user can add new projects by entering the name of the 
-project in the text field and click the "Add Project" button. The user can 
-check all the tasks scheduled through the "View All Tasks" button.
+3) The home page lists the projects that were created and is blank if 
+there are no projects. The user can add new projects by entering the 
+name of the project in the text field and click the "Add Project" 
+button. The user can check all the tasks scheduled through the 
+"View All Tasks" button.
 
 4) Every page after the user is logged in has a navigation bar on the top 
 which features a logo on the left which the user can use to return to the 
@@ -157,30 +158,81 @@ three buttons:
 	track tasks, and track deadlines.
 	User Setting - which redirects the user to the settings page.
 
-5) The user can click on a particular project to be redirected to a page with
-the list of tasks and due dates associated with the project. It lists the user
-and the priority of the task along with a field to reassign the task if the user
-exists through the "Reassign Task" button. The user can prioritize the task 
-through "Prioritize Task" button. The user can also mark the task as completed 
-through "Complete Task" button or delete the task with "Delete Task" button.
+5) The user can click on a particular project to be redirected to a page 
+with the list of tasks and due dates associated with the project. It lists 
+the  user and the priority of the task along with a field to reassign the 
+task if the user exists through the "Reassign Task" button. The user can 
+prioritize the task through "Prioritize Task" button. The user can also 
+mark the task as completed through "Complete Task" button or delete the 
+task with "Delete Task" button.
 
-6) The user can add new tasks with in a particular project by entering the name 
-of the task in the text field followed by the due date for the task in the 
-format - MM/DD/YYYY and click "Add Task" which can be viewed at the bottom list. 
-Please match the format of the date as it is required to match in order to create
-a new task.
+6) The user can add new tasks with in a particular project by entering the
+name of the task in the text field followed by the due date for the task in
+the format - MM/DD/YYYY and click "Add Task" which can be viewed at the 
+bottom list. 
+Please match the format of the date as it is required to match in order to
+create a new task.
 
-7) The calendar page offers the user a visual representation of the tasks and 
-deadlines hrough a calendar view. The user can add new tasks by clicking on the 
-date and the "+" button which will prompt the user to enter a start and end time 
-for the task to be scheduled.
+7) The calendar page offers the user a visual representation of the tasks 
+and deadlines hrough a calendar view. The user can add new tasks by clicking
+on the date and the "+" button which will prompt the user to enter a start 
+and end time for the task to be scheduled.
 
 8) The user settings page has three buttons:
-	Change password - Enter current password followed by new password and 
-	click "Change Password" button.
-	Delete account - Enter current password and click "DELETE ACCOUNT FOREVER" 
-	button.
-	Time Log - Shows the login and log out time of the user along with the 
-	total time worked online.
-*First time users would see a blank space as they have logged in for the first time and the database is empty. 
+	Change password - Enter current password followed by new password 
+	and click "Change Password" button.
+	Delete account - Enter current password, confirm, and then click 
+	"DELETE ACCOUNT FOREVER" button.
+	Time Log - Shows the login and log out time of the user along with
+	the total time worked online.
+*First time users would see a blank space as they have logged in for the 
+first time and the database is empty. 
+
+
+CREDITS:
+Thanks to the members for making the project a success:
+
+1) Aden Dang - https://github.com/AcedenD
+2) Aishwar Gupta - https://github.com/Aishwar-Gupta
+3) Jugad Khajuria - https://github.com/JugadK
+4) Khanh Nguyen - https://github.com/khanhng21
+
+
+LICENSE:
+Proprietary license.
+The work cannot be modified or redistributed.
+
+
+HOW TO CONTRIBUTE TO THE PROJECT:
+In order to contribute to the project or to report bugs use github through 
+the link below and open a pull request with a description message and one 
+of the members would look into the issue.
+
+github link: https://github.com/AcedenD/CMPE131team4.git
+
+Steps involved:
+	Fork the repository on your local machine
+	Add the necessary changes to contribute to the project or bugs report
+	Stage the files to the local repository - git add .
+	Commit the changes to the local repository with appropriate 
+	message - git commit -m '<message>'
+	Open a pull request - git pull
+
+Members would look into the issue within a week.
+
+
+TESTS FOR THE PROJECT:
+The files in the project includes two files named "user_test.py" and 
+"task_test.py" which test the user and the task functions respectively. It 
+does so by passing a demo user and task object and check to match in the 
+database. Each function is tested twice and users can run the test with 
+the commands below to test the app.
+
+python3 user_test.py
+python3 task_test.py
+
+The commands above depends on the version of python running on local machine.
+If using python 3 then use the above command else change accordingly.
+On the local repository, the user can pass their own values for the user 
+object and run the tests.
 
