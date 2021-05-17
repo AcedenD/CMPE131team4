@@ -9,10 +9,10 @@
 	* Users can create tasks which can be scheduled on a particular date and time with set priority to track deadlines.
 
     4.Central Calender
-	* A central calendar for visual presentation of tasks and deadlines and the user can create new tasks.
+	* A central calendar for visual presentation of tasks and deadlines and the user can create new tasks. 
 
     5.Track online time
-	* 
+	* Tracks time spent online by recording the login time and the log out time of the user and saving the total time worked.
 
     6.User able to change password
 	*
