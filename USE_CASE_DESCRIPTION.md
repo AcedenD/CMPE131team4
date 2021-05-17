@@ -1,10 +1,10 @@
 ## USE CASE DESCRIPTIONS
 
-Product Name: Task Managerinator
-Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+*Product Name: Task Managerinator
+*Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
 
-Use Case Name: Create account
-Date: 17 May, 2021
+*Use Case Name: Create account
+*Date: 17 May, 2021
 
 ## Summary
 The users should be able to create an account on the portal so they can use other features and save their future works and progress in one dashboard. 
