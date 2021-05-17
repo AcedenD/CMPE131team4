@@ -7,6 +7,12 @@
 * [External Tools](#external-tools)
 * [Use Case](#use-cases)
 
+## HOW TO DOWNLOAD THE APP:
+Download or pull the files from AcedenD/CMPE131team4 through github at 
+a local repository on your machine.
+
+Github link to clone project: https://github.com/AcedenD/CMPE131team4.git 
+
 ## How to run app
 
 * python3 run.py
