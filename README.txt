@@ -74,21 +74,53 @@ the current projects.
 the home page.
 With at least one project on dashboard, the user can click on the 
 project to go to the tasks page.
-	On the tasks page, user can create new project, set priority, mark as 
-  completed, delete the task and reassign the task to another user(if 
-  the user exists). 
+	On the tasks page, user can create new project, set priority, 
+	mark as completed, delete the task and reassign the task to 
+	another user(if the user exists). 
 The navigation bar on the top of every page:
 	Logo on the right, which will take the user back to the home page.
 	Logout button, when user decide to logout.
 	Calendar button, where user can see all the task and it due date.
 	UserSetting button, which takes the user to the user setting page. 
   The page has 3 buttons:
-		Change Password button, that redirects the user to a page where 
-    they can change their account password.
-		Delete account button, that redirects the user to a page where 
-    they can delete their account forever.
-		Time log button, that redirects the user to a time log page to 
-    show the user's login and logout time.
+		Change Password button, that redirects the user to a page 
+		where they can change their account password.
+		Delete account button, that redirects the user to a page 
+		where they can delete their account forever.
+		Time log button, that redirects the user to a time log page
+		to show the user's login and logout time.
 
 For step-by-step guide look into "Navigating through project and how to use the app" below in the README file.
+
+
+DEPENDENCIES:
+
+pip/pip3 install flask flask-wtf flask-sqlalchemy flask-login
+
+To install pip (Unix/Mac or Windows) and documentation on pip refer to the link: https://pip.pypa.io/en/stable/installing/
+
+
+EXTERNAL TOOLS:
+External tools were used to view the database items:
+	SQLite Database viewer https://sqliteonline.com/
+	Alternative viewer: https://inloop.github.io/sqlite-viewer/
+
+
+USE CASES:
+
+	1. Create account
+	2. Create project
+	3. Create task
+	4. Central Calendar
+	5. Track online time
+	6. User able to change password
+	7. Delete User Account
+	8. Set priority for task
+	9. Delete Task
+	10. User reassign task
+	11. Create multiple projects
+	12. View all tasks page - able to click on task to visit project link
+	13. Delete all completed tasks
+	14. Add readme to projects
+	15. Real-Time notifications
 
