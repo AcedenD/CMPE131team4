@@ -236,3 +236,26 @@ If using python 3 then use the above command else change accordingly.
 On the local repository, the user can pass their own values for the user 
 object and run the tests.
 
+
+CONCLUSION:
+The application is used to track online projects, personal or work, and manage
+resources to stay on top of the requirements. The project offers easy 
+visualizations of projects through text and calendars to track deadlines and 
+total time worked online. The app has a fast response time and redirects the 
+user to various pages depending on the clicks and authentication. Multiple 
+users can collaborate over multiple projects by assigning tasks accordingly 
+through the app. The unique features and easy user interface makes the app 
+stand out in the community and help users and supervisors manage their projects.
+
+
+CONTACT US:
+Please use DISCORD or EMAIL to contact us:
+1) Aden Dang - adendd - adendd@taskmanagerinator.com
+2) Aishwar Gupta - Aishwar - aishwar@taskmanagerinator.com
+3) Jugad Khajuria - Jewgad - jewgad@taskmanagerinator.com
+4) Khanh Nguyen - Khanh Nguyen - khanh_nguyen@taskmanagerinator.com
+
+You can also email your concerns at concerns@taskmanagerinator.com
+
+
+-------------------------Thank-you-for-using-our-software-------------------------
