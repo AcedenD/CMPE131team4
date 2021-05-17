@@ -96,7 +96,7 @@ The user can also mark the task as completed through "Complete Task" button or d
 
 6) The user can add new tasks with in a particular project by entering the name of the task in the text field followed by the due date for
 the task in the format - MM/DD/YYYY and click "Add Task" which can be viewed at the bottom list. 
- * Please match the format of the date as it is required to match in order to create a new task.
+	* Please match the format of the date as it is required to match in order to create a new task.
 
 7) The calendar page offers the user a visual representation of the tasks and deadlines hrough a calendar view. 
 The user can add new tasks by clicking on the date and the "+" button which will prompt the user to enter a start 
@@ -121,14 +121,13 @@ Thanks to the members for making the project a success:
 Proprietary license.
 *The work cannot be modified or redistributed without permission.
 
-
 ## HOW TO CONTRIBUTE TO THE PROJECT:
 In order to contribute to the project or to report bugs use github through the link below and open a pull request with a description message 
 and one of the members would look into the issue.
 
 github link: https://github.com/AcedenD/CMPE131team4.git
 
-*Steps involved:
+* Steps involved:
 	* Fork the repository on your local machine
 	* Add the necessary changes to contribute to the project or bugs report
 	* Stage the files to the local repository - git add .
@@ -137,3 +136,34 @@ github link: https://github.com/AcedenD/CMPE131team4.git
 
 *Members would look into the issue within a week.
 
+## TESTS FOR THE PROJECT:
+The files in the project includes two files named "user_test.py" and "task_test.py" which test the user and the task functions respectively. 
+It does so by passing a demo user and task object and check to match in the database. 
+Each function is tested twice and users can run the test with the commands below to test the app.
+
+	python3 user_test.py
+	python3 task_test.py
+
+The commands above depends on the version of python running on local machine.
+If using python 3 then use the above command else change accordingly.
+On the local repository, the user can pass their own values for the user object and run the tests.
+
+## CONCLUSION:
+The application is used to track online projects, personal or work, and manage resources to stay on top of the requirements.
+The project offers easy visualizations of projects through text and calendars to track deadlines and total time worked online. 
+The app has a fast response time and redirects the user to various pages depending on the clicks and authentication. 
+Multiple users can collaborate over multiple projects by assigning tasks accordingly through the app. 
+The unique features and easy user interface makes the app stand out in the community and help users and supervisors manage their projects.
+
+
+## CONTACT US:
+Please use DISCORD or EMAIL to contact us:
+	* Aden Dang - adendd - adendd@taskmanagerinator.com
+	* Aishwar Gupta - Aishwar - aishwar@taskmanagerinator.com
+	* Jugad Khajuria - Jewgad - jewgad@taskmanagerinator.com
+	* Khanh Nguyen - Khanh Nguyen - khanh_nguyen@taskmanagerinator.com
+
+- You can also email your concerns at concerns@taskmanagerinator.com
+
+
+-------------------------Thank-you-for-using-our-software-------------------------
