@@ -8,6 +8,7 @@
 * [Use Case](#use-cases)
 
 ## HOW TO DOWNLOAD THE APP:
+
 Download or pull the files from AcedenD/CMPE131team4 through github at 
 a local repository on your machine.
 
@@ -20,6 +21,9 @@ Github link to clone project: https://github.com/AcedenD/CMPE131team4.git
 * python3 
 * >>>from app import db
 * >>>db.create_all()
+
+The commands above depends on the version of python running on local machine. If using python 3 then use the above command else change accordingly.
+Once the server link is generated in the terminal, copy the local host to the desired browser and the app will start.
 
 ## General instructions for website
 
@@ -42,8 +46,12 @@ Github link to clone project: https://github.com/AcedenD/CMPE131team4.git
 
 * pip/pip3 install flask flask-wtf flask-sqlalchemy flask-login
 
+To install pip (Unix/Mac or Windows) and documentation on pip refer to the 
+link: https://pip.pypa.io/en/stable/installing/
+
 ## External Tools
 
+The tools were used to view the database items: 
 * SQLite Database viewer https://sqliteonline.com/
 * https://inloop.github.io/sqlite-viewer/
 
@@ -66,6 +74,7 @@ Github link to clone project: https://github.com/AcedenD/CMPE131team4.git
 - 15.Real-Time notifications
 
 ## NAVIGATING THROUGH PROJECT AND HOW TO USE THE APP:
+
 First time users should follow these steps to better understand the app and get familiar:
 1) When running for the first time the user must create an account through "Sign up" button.
 	 * Enter your Username
@@ -109,6 +118,7 @@ and end time for the task to be scheduled.
 *First time users would see a blank space as they have logged in for the first time and the database is empty. 
 
 ## CREDITS:
+
 Thanks to the members for making the project a success:
 
 	1) Aden Dang - https://github.com/AcedenD
@@ -118,10 +128,12 @@ Thanks to the members for making the project a success:
 
 
 ## LICENSE:
+
 Proprietary license.
 *The work cannot be modified or redistributed without permission.
 
 ## HOW TO CONTRIBUTE TO THE PROJECT:
+
 In order to contribute to the project or to report bugs use github through the link below and open a pull request with a description message 
 and one of the members would look into the issue.
 
@@ -137,6 +149,7 @@ github link: https://github.com/AcedenD/CMPE131team4.git
 *Members would look into the issue within a week.
 
 ## TESTS FOR THE PROJECT:
+
 The files in the project includes two files named "user_test.py" and "task_test.py" which test the user and the task functions respectively. 
 It does so by passing a demo user and task object and check to match in the database. 
 Each function is tested twice and users can run the test with the commands below to test the app.
@@ -149,6 +162,7 @@ If using python 3 then use the above command else change accordingly.
 On the local repository, the user can pass their own values for the user object and run the tests.
 
 ## CONCLUSION:
+
 The application is used to track online projects, personal or work, and manage resources to stay on top of the requirements.
 The project offers easy visualizations of projects through text and calendars to track deadlines and total time worked online. 
 The app has a fast response time and redirects the user to various pages depending on the clicks and authentication. 
@@ -157,6 +171,7 @@ The unique features and easy user interface makes the app stand out in the commu
 
 
 ## CONTACT US:
+
 Please use DISCORD or EMAIL to contact us:
 	* Aden Dang - adendd - adendd@taskmanagerinator.com
 	* Aishwar Gupta - Aishwar - aishwar@taskmanagerinator.com
