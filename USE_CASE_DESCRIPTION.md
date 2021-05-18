@@ -259,11 +259,50 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Delete user account
+
+Date: 17 May, 2021
+
+## Summary
+The user can delete their account permanently, with all their data, if they no longer require the services.
+
+## Actors
+* Customers/Users
+* System software
+
+## Preconditions
+* Precondition 1: The user must be logged in to their acount.
+* Precondition 2: The user should click the 'User Settings' button in the navigation bar.
+* Precondition 3: The user should click 'Delete Account' button.
+* Precondition 4: The user should enter the valid current password in the text field.
+* Precondition 4: The user should enter a the current password to confirm in the text field.
+
+## Triggers
+* When the user clicks 'DELETE ACCOUNT FOREVER' button.
+
+## Primary Sequence
+* Step 1: Check if the user has successfully logged into their account.
+* Step 2: Check if the current password entered is correct.
+* Step 3: Check if the confirm password field matches the password field.
+* Step 4: Delete the associated account forever by removing it from the data base.
+
+## Primary Postconditions
+* Postcondition 1: The associated account is deleted forever and the user is removed from the data base.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
-7.Delete User Account
-	*
+
 
 8.Set priority for task
 	*
