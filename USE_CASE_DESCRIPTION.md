@@ -80,9 +80,52 @@ The projects will help keep track of all the schedules for a particular set of t
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
 
-3.Create task
-	* Users can create tasks which can be scheduled on a particular date and time with set priority to track deadlines.
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Create task
+
+Date: 17 May, 2021
+
+## Summary
+The users can create tasks according to their schedule, on a particular date and time, and set the priority of the task to keep track of the work to be done.
+The user can create multiple tasks within a project and will be able to assign tasks to other users provided the user exists. The user can track deadlines, save
+work for future, and manage progress from one dashboard. 
+
+## Actors
+* Customers/Users
+* System software
+* System clock
+
+## Preconditions
+* Precondition 1: The user must be within a valid project.
+* Precondition 2: The user should enter a valid task name in the text field.
+* Precondition 3: The user should enter a valid due date in the format MM/DD/YYYY.
+
+## Triggers
+* The user must click Add Task button in order to generate a new task.
+
+## Primary Sequence
+* Step 1: Check if the user is inside a project.
+* Step 2: Validate the entered task name and due date in the correct format.
+* Step 3: Create a new task with specified name and due date, and store the task in the data base.
+* Step 4: Add the task to the calendar with due date.
+* Step 5: Display the task at the bottom in the task list with set priority and due date.
+
+## Primary Postconditions
+* Postcondition 1: A new task is created and stored in the data base.
+* Postcondition 2: The task due date is added to the central calendar.
+* Postcondition 3: The task is displayed in the task list with set priority, name, and due date.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 4.Central Calender
 	* A central calendar for visual presentation of tasks and deadlines and the user can create new tasks. 
