@@ -99,9 +99,11 @@ work for future, and manage progress from one dashboard.
 * Customers/Users
 * System software
 * System clock
+* System calendar
 
 ## Preconditions
-* Precondition 1: The user must be within a valid project.
+* Precondition 1: The user must be logged in to their acount.
+* Precondition 2: The user must be within a valid project.
 * Precondition 2: The user should enter a valid task name in the text field.
 * Precondition 3: The user should enter a valid due date in the format MM/DD/YYYY.
 
@@ -125,10 +127,48 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Central calendar
+
+Date: 18 May, 2021
+
+## Summary
+The users can have a calendar view of the deadlines to plan their time spent on tasks. The calendar will allow the users to add new tasks.
+The user selects a particular date and enters the start and end time of the task to schedule the task on that day.
+
+## Actors
+* Customers/Users
+* System software
+* System clock
+* System calendar
+
+## Preconditions
+* Precondition 1: The user must be logged in to their account.
+* Precondition 2: The user must choose the "Calendar" button on the top at the navigation bar.
+
+## Triggers
+* The user must click the "Calendar" button in order to be redirected to the calendar page for the new account.
+
+## Primary Sequence
+* Step 1: Check if the calendar button was clicked in the navigation bar.
+* Step 2: Upload the calendar and add the tasks from the data base on specified dates.
+* Step 3: If user want to add a new task, then add the task to the data base on the specified date.
+
+## Primary Postconditions
+* Postcondition 1: A calendar view is available to the user with marked tasks and deadlines.
+* Postcondition 2: If new task is added, then the task is added to the data base with specified attributes and will display in task list.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-4.Central Calender
-	* A central calendar for visual presentation of tasks and deadlines and the user can create new tasks. 
 
 5.Track online time
 	* Tracks time spent online by recording the login time and the log out time of the user and saving the total time worked.
