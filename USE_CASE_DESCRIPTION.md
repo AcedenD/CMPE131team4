@@ -104,8 +104,8 @@ work for future, and manage progress from one dashboard.
 ## Preconditions
 * Precondition 1: The user must be logged in to their acount.
 * Precondition 2: The user must be within a valid project.
-* Precondition 2: The user should enter a valid task name in the text field.
-* Precondition 3: The user should enter a valid due date in the format MM/DD/YYYY.
+* Precondition 3: The user should enter a valid task name in the text field.
+* Precondition 4: The user should enter a valid due date in the format MM/DD/YYYY.
 
 ## Triggers
 * The user must click Add Task button in order to generate a new task.
@@ -168,10 +168,54 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Track online time
+
+Date: 17 May, 2021
+
+## Summary
+The feature allows the users to track time spent online. It logs in the user once they log into their account and logs out when they log out of their account.
+The feature can be used by users to track their time spent on various personal projects or allow the supervisor complete the payroll through hours worked.
+
+## Actors
+* Customers/Users
+* System software
+* System clock
+* System calendar
+
+## Preconditions
+* Precondition 1: The user must be logged in to their acount.
+* Precondition 2: The user must be logged in and logged out at least once or else the data base would be empty.
+* Precondition 3: The user should click the 'User Settings' button in the navigation bar.
+* Precondition 4: The user should click 'Time Log' button to view the past entries.
+
+## Triggers
+* When the user logs in and logs out of their account.
+
+## Primary Sequence
+* Step 1: Check if the user has successfully logged into their account.
+* Step 2: Store the time stamp when the user logged into their account.
+* Step 3: Check if the user has logged out of the account.
+* Step 4: Store the time stamp when the user logged out of their account.
+* Step 5: Calculate the total time worked by taking the time difference and store it in the data base.
+* Step 6: When 'Time Log' button is clicked, display the past entries of the user.
+
+## Primary Postconditions
+* Postcondition 1: A new time stamp for log in and log out is created and stored in the data base.
+* Postcondition 2: The calculated online time is added to the data base.
+* Postcondition 3: The time log data base is displayed with respective date and time.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-5.Track online time
-	* Tracks time spent online by recording the login time and the log out time of the user and saving the total time worked.
 
 6.User able to change password
 	*
