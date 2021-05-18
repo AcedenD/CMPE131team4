@@ -215,10 +215,52 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: User able to change password
+
+Date: 17 May, 2021
+
+## Summary
+The user can change the present password to another password in case they feel insecure or the password is hard to remember by confirming the present password.
+
+## Actors
+* Customers/Users
+* System software
+
+## Preconditions
+* Precondition 1: The user must be logged in to their acount.
+* Precondition 2: The user should click the 'User Settings' button in the navigation bar.
+* Precondition 3: The user should click change password button.
+* Precondition 4: The user should enter the valid current password in the text field.
+* Precondition 4: The user should enter a valid new password and confirm the password in the text field.
+
+## Triggers
+* When the user clicks 'Change Password' button.
+
+## Primary Sequence
+* Step 1: Check if the user has successfully logged into their account.
+* Step 2: Check if the current password entered is correct.
+* Step 3: Check if the new password is valid.
+* Step 4: Check if the confirm new password field matches the new password field.
+* Step 5: Change the password for the associated account to the new password.
+* Step 6: Store the new password associated with the account in the data base for future use and authentication.
+
+## Primary Postconditions
+* Postcondition 1: A new password for the associated account is created and stored in the data base.
+* Postcondition 2: The user will be authenticated based on the new password.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-6.User able to change password
-	*
+
 
 7.Delete User Account
 	*
