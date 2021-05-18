@@ -466,6 +466,43 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: View all tasks page
+
+Date: 17 May, 2021
+
+## Summary
+The user can wish to see all the tasks ever scheduled in a list format.The feature will display all the tasks completed or not with their due dates and priority in a list format.
+
+## Actors
+* Customers/Users
+* System software
+
+## Preconditions
+* Precondition 1: The user must be logged in to their acount.
+* Precondition 2: The user should be at the home page of the application.
+* Precondition 3: The user should have some tasks scheduled in order to see the list format display else it will be a blank table.
+* Precondition 4: The user chould click 'View All Tasks' button.
+
+## Triggers
+* When the user clicks 'View All Tasks' button from the home page.
+
+## Primary Sequence
+* Step 1: Check if the user has successfully logged into their account.
+* Step 2: Display all the predefined tasks from all the projects whether completed or not with set deadlines and priority.
+
+## Primary Postconditions
+* Postcondition 1: The list of tasks will be displayed to the user from the data base with set deadlines and priority.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -474,8 +511,8 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 
 
-12.View all tasks page
-	*
+
+
 
 13.Delete all completed tasks
 	*
