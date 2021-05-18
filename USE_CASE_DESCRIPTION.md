@@ -381,13 +381,54 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: User reassign task
+
+Date: 17 May, 2021
+
+## Summary
+The user can reassign a particular task to other users working on the project as long as the user exists in the data base. It can be used by managers and group leaders to assign tasks to different members in the group.
+
+## Actors
+* Customers/Users
+* System software
+
+## Preconditions
+* Precondition 1: The user must be logged in to their acount.
+* Precondition 2: The user should be within a partcular project where the task is scheduled.
+* Precondition 3: There should be at least one task scheduled to reassign the task to another user.
+* Precondition 4: The user being reassigned the task should exist in the data base and have a valid account.
+* Precondition 5: The user must enter the name of the user to whom they want to assign the task in the text field associated with the task.
+* Precondition 6: The user chould click 'Reassign Task' button.
+
+## Triggers
+* When the user clicks 'Reassign Task' button.
+
+## Primary Sequence
+* Step 1: Check if the user has successfully logged into their account.
+* Step 2: Check if the user has tasks within the project.
+* Step 3: Check if the user entered to be reassigned is a valid user and exists in the data base.
+* Step 4: Reassign the associated task to the other user with set deadline and priority.
+* Step 5: Add the changes to the data base and display the task with a new user in the task list.
+
+## Primary Postconditions
+* Postcondition 1: The associated task will be assigned to a different user and added to the data base to display in the task list.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
 
-10.User reassign task
-	*
+
 
 11.Create multiple projects
 	*
