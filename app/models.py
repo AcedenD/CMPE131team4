@@ -41,6 +41,8 @@ class Tasks(db.Model):
     due_date = db.Column(db.DateTime, default =datetime.utcnow)
     # To find what project each task belongs too
     project = db.Column(db.String(256))
+    user = db.Column(db.String(200))
+    completed = db.Column(db.Boolean)
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
@@ -53,6 +55,19 @@ class Tasks(db.Model):
 
     def set_due_date(self, due_date):
         self.due_date = due_date
+
+class Notification(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer)
+    start_time = db.Column(db.DateTime)
+    due_date = db.Column(db.DateTime)
+    message = db.Column(db.String(200))
+    ## true if both times should be show, not if jusst one
+    meeting = db.Column(db.Boolean)
+
+    def __repr__(self):
+        return str(self.due_date)
+        
 
 
 
