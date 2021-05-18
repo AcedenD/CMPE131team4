@@ -404,7 +404,7 @@ The user can reassign a particular task to other users working on the project as
 * Precondition 3: There should be at least one task scheduled to reassign the task to another user.
 * Precondition 4: The user being reassigned the task should exist in the data base and have a valid account.
 * Precondition 5: The user must enter the name of the user to whom they want to assign the task in the text field associated with the task.
-* Precondition 6: The user chould click 'Reassign Task' button.
+* Precondition 6: The user should click 'Reassign Task' button.
 
 ## Triggers
 * When the user clicks 'Reassign Task' button.
@@ -446,7 +446,7 @@ The user can create multiple projects based on their requirements to work on. Th
 * Precondition 2: The user should be at the home page of the application.
 * Precondition 3: There should be at least one project scheduled to create multiple projects by the user.
 * Precondition 4: The user should enter the name of the project in the text field provided.
-* Precondition 5: The user chould click 'Add Project' button.
+* Precondition 5: The user should click 'Add Project' button.
 
 ## Triggers
 * When the user clicks 'Add Project' button while at least one project exists in the data base.
@@ -487,7 +487,7 @@ The user can wish to see all the tasks ever scheduled in a list format.The featu
 * Precondition 1: The user must be logged in to their acount.
 * Precondition 2: The user should be at the home page of the application.
 * Precondition 3: The user should have some tasks scheduled in order to see the list format display else it will be a blank table.
-* Precondition 4: The user chould click 'View All Tasks' button.
+* Precondition 4: The user should click 'View All Tasks' button.
 
 ## Triggers
 * When the user clicks 'View All Tasks' button from the home page.
@@ -504,6 +504,45 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Delete all completed tasks
+
+Date: 17 May, 2021
+
+## Summary
+The completed tasks can be deleted from the data base by the user to avoid having large list of completed tasks mixed with incomplete tasks. 
+
+## Actors
+* Customers/Users
+* System software
+
+## Preconditions
+* Precondition 1: The user must be logged in to their acount.
+* Precondition 2: The user should have some predefined tasks within a project.
+* Precondition 3: The user should mark the task as completed by clicking the 'Complete Task' button associated with the task.
+* Precondition 4: The user should click 'Delete Task' button once the task is marked as completed.
+
+## Triggers
+* When the user clicks 'Delete Task' button associated with the task.
+
+## Primary Sequence
+* Step 1: Check if the user has successfully logged into their account.
+* Step 2: Check if the task is marked as completed.
+* Step 3: Delete the task and remove it from the data base.
+
+## Primary Postconditions
+* Postcondition 1: The associated task will be removed from the data base and the display.
+* Postcondition 2: Other tasks, if any, will take its place on the list of tasks.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -514,8 +553,6 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 
 
-13.Delete all completed tasks
-	*
 
 14.Add readme to projects
 	*
