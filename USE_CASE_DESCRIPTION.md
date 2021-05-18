@@ -424,14 +424,55 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Create multiple projects
+
+Date: 17 May, 2021
+
+## Summary
+The user can create multiple projects based on their requirements to work on. They can have projects associated with their work and their personal projects. The userscan keep tasks separated for each project and ewitch between the projects to track their progress over time.
+
+## Actors
+* Customers/Users
+* System software
+
+## Preconditions
+* Precondition 1: The user must be logged in to their acount.
+* Precondition 2: The user should be at the home page of the application.
+* Precondition 3: There should be at least one project scheduled to create multiple projects by the user.
+* Precondition 4: The user should enter the name of the project in the text field provided.
+* Precondition 5: The user chould click 'Add Project' button.
+
+## Triggers
+* When the user clicks 'Add Project' button while at least one project exists in the data base.
+
+## Primary Sequence
+* Step 1: Check if the user has successfully logged into their account.
+* Step 2: Check if the user has at least one project predefined.
+* Step 3: Check if the user entered a valid project name.
+* Step 4: Add the new project to the data base and display on the list of projects.
+
+## Primary Postconditions
+* Postcondition 1: The new project will be created along with the old projects exising in the data base.
+* Postcondition 2: The new project is displayed on the home page and allows same functionalities as all other projects.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
 
 
-11.Create multiple projects
-	*
+
+
 
 12.View all tasks page
 	*
