@@ -300,12 +300,49 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Set priority for task
+
+Date: 17 May, 2021
+
+## Summary
+The user can prioritize the tasks between 1 and 3 so that the tasks with higher priority would be at the top helping the user know the important tasks.
+
+## Actors
+* Customers/Users
+* System software
+
+## Preconditions
+* Precondition 1: The user must be logged in to their acount.
+* Precondition 2: The user should be within a partcular project where the task is scheduled.
+* Precondition 3: There should be at least one task to use the priority feature.
+* Precondition 4: The user should click 'Prioritize Task' button.
+
+## Triggers
+* When the user clicks 'Prioritize Task' button.
+
+## Primary Sequence
+* Step 1: Check if the user has successfully logged into their account.
+* Step 2: Check if the user has tasks within the project or can create a new one.
+* Step 3: With every click on the 'Prioritize Task' button the priority of the task will alternate between 1 and 3.
+* Step 4: Set the priority of the associated task to the desired value.
+
+## Primary Postconditions
+* Postcondition 1: The associated task will have a new priority and the data base is updated with the new priority.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
-8.Set priority for task
-	*
 
 9.Delete Task
 	*
