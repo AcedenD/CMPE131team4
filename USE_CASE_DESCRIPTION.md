@@ -340,12 +340,51 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Delete task
+
+Date: 17 May, 2021
+
+## Summary
+The user can delete tasks that are no longer needed for the project to avoid having a long list with needless tasks.
+
+## Actors
+* Customers/Users
+* System software
+
+## Preconditions
+* Precondition 1: The user must be logged in to their acount.
+* Precondition 2: The user should be within a partcular project where the task is scheduled.
+* Precondition 3: There should be at least one task scheduled to delete the task.
+* Precondition 4: The user should click 'Delete Task' button.
+
+## Triggers
+* When the user clicks 'Delete Task' button.
+
+## Primary Sequence
+* Step 1: Check if the user has successfully logged into their account.
+* Step 2: Check if the user has tasks within the project.
+* Step 3: Delete the associated task by removing it from the data base.
+* Step 4: Remove the associated task from the task list displayed.
+
+## Primary Postconditions
+* Postcondition 1: The associated task will be removed from the daa base and from the task lists.
+* Postcondition 2: If there are more tasks in the list, the other task will take its place in the displayed list.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
-9.Delete Task
-	*
+
 
 10.User reassign task
 	*
