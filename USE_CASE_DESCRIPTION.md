@@ -102,7 +102,7 @@ work for future, and manage progress from one dashboard.
 * System calendar
 
 ## Preconditions
-* Precondition 1: The user must be logged in to their acount.
+* Precondition 1: The user must be logged in to their account.
 * Precondition 2: The user must be within a valid project.
 * Precondition 3: The user should enter a valid task name in the text field.
 * Precondition 4: The user should enter a valid due date in the format MM/DD/YYYY.
@@ -189,7 +189,7 @@ The feature can be used by users to track their time spent on various personal p
 * System calendar
 
 ## Preconditions
-* Precondition 1: The user must be logged in to their acount.
+* Precondition 1: The user must be logged in to their account.
 * Precondition 2: The user must be logged in and logged out at least once or else the data base would be empty.
 * Precondition 3: The user should click the 'User Settings' button in the navigation bar.
 * Precondition 4: The user should click 'Time Log' button to view the past entries.
@@ -233,7 +233,7 @@ The user can change the present password to another password in case they feel i
 * System software
 
 ## Preconditions
-* Precondition 1: The user must be logged in to their acount.
+* Precondition 1: The user must be logged in to their account.
 * Precondition 2: The user should click the 'User Settings' button in the navigation bar.
 * Precondition 3: The user should click change password button.
 * Precondition 4: The user should enter the valid current password in the text field.
@@ -277,7 +277,7 @@ The user can delete their account permanently, with all their data, if they no l
 * System software
 
 ## Preconditions
-* Precondition 1: The user must be logged in to their acount.
+* Precondition 1: The user must be logged in to their account.
 * Precondition 2: The user should click the 'User Settings' button in the navigation bar.
 * Precondition 3: The user should click 'Delete Account' button.
 * Precondition 4: The user should enter the valid current password in the text field.
@@ -318,7 +318,7 @@ The user can prioritize the tasks between 1 and 3 so that the tasks with higher 
 * System software
 
 ## Preconditions
-* Precondition 1: The user must be logged in to their acount.
+* Precondition 1: The user must be logged in to their account.
 * Precondition 2: The user should be within a partcular project where the task is scheduled.
 * Precondition 3: There should be at least one task to use the priority feature.
 * Precondition 4: The user should click 'Prioritize Task' button.
@@ -358,7 +358,7 @@ The user can delete tasks that are no longer needed for the project to avoid hav
 * System software
 
 ## Preconditions
-* Precondition 1: The user must be logged in to their acount.
+* Precondition 1: The user must be logged in to their account.
 * Precondition 2: The user should be within a partcular project where the task is scheduled.
 * Precondition 3: There should be at least one task scheduled to delete the task.
 * Precondition 4: The user should click 'Delete Task' button.
@@ -375,6 +375,7 @@ The user can delete tasks that are no longer needed for the project to avoid hav
 ## Primary Postconditions
 * Postcondition 1: The associated task will be removed from the daa base and from the task lists.
 * Postcondition 2: If there are more tasks in the list, the other task will take its place in the displayed list.
+* Postcondition 3: Update the calendar with the deleted task.
 
 ## Alternate Sequence
 NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
@@ -399,7 +400,7 @@ The user can reassign a particular task to other users working on the project as
 * System software
 
 ## Preconditions
-* Precondition 1: The user must be logged in to their acount.
+* Precondition 1: The user must be logged in to their account.
 * Precondition 2: The user should be within a partcular project where the task is scheduled.
 * Precondition 3: There should be at least one task scheduled to reassign the task to another user.
 * Precondition 4: The user being reassigned the task should exist in the data base and have a valid account.
@@ -418,6 +419,7 @@ The user can reassign a particular task to other users working on the project as
 
 ## Primary Postconditions
 * Postcondition 1: The associated task will be assigned to a different user and added to the data base to display in the task list.
+* Postcondition 2: Add the task to the calendar with due date.
 
 ## Alternate Sequence
 NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
@@ -442,7 +444,7 @@ The user can create multiple projects based on their requirements to work on. Th
 * System software
 
 ## Preconditions
-* Precondition 1: The user must be logged in to their acount.
+* Precondition 1: The user must be logged in to their account.
 * Precondition 2: The user should be at the home page of the application.
 * Precondition 3: There should be at least one project scheduled to create multiple projects by the user.
 * Precondition 4: The user should enter the name of the project in the text field provided.
@@ -484,7 +486,7 @@ The user can wish to see all the tasks ever scheduled in a list format.The featu
 * System software
 
 ## Preconditions
-* Precondition 1: The user must be logged in to their acount.
+* Precondition 1: The user must be logged in to their account.
 * Precondition 2: The user should be at the home page of the application.
 * Precondition 3: The user should have some tasks scheduled in order to see the list format display else it will be a blank table.
 * Precondition 4: The user should click 'View All Tasks' button.
@@ -522,7 +524,7 @@ The completed tasks can be deleted from the data base by the user to avoid havin
 * System software
 
 ## Preconditions
-* Precondition 1: The user must be logged in to their acount.
+* Precondition 1: The user must be logged in to their account.
 * Precondition 2: The user should have some predefined tasks within a project.
 * Precondition 3: The user should mark the task as completed by clicking the 'Complete Task' button associated with the task.
 * Precondition 4: The user should click 'Delete Task' button once the task is marked as completed.
@@ -538,6 +540,7 @@ The completed tasks can be deleted from the data base by the user to avoid havin
 ## Primary Postconditions
 * Postcondition 1: The associated task will be removed from the data base and the display.
 * Postcondition 2: Other tasks, if any, will take its place on the list of tasks.
+* Postcondition 3: Updated the calendar with the tasks.
 
 ## Alternate Sequence
 NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
@@ -562,7 +565,7 @@ The user can add a readme text to every project with the description of what the
 * System software
 
 ## Preconditions
-* Precondition 1: The user must be logged in to their acount.
+* Precondition 1: The user must be logged in to their account.
 * Precondition 2: The user should have at least one predefined project.
 * Precondition 3: The user should add a description of what the project is about in the text field named readme to store it in the data base.
 * Precondition 4: The user should click 'Add README' button.
@@ -584,16 +587,42 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
 
+Product Name: Task Managerinator
 
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
 
+Use Case Name: Real-Time notifications
 
+Date: 17 May, 2021
 
+## Summary
+The user will get real-time notifications of the added tasks and projects associated with the user to keep the user up to date on recent changes and deadlines in the projects. 
 
+## Actors
+* Customers/Users
+* System software
+* System clock
+* System calendar
 
+## Preconditions
+* Precondition 1: The user must be logged in to their account.
 
+## Triggers
+* When there are changes in the project status of a user.
 
+## Primary Sequence
+* Step 1: Check if the user has successfully logged into their account.
+* Step 2: Check if the user has a new project defined.
+* Step 3: Check if the user has created a new task.
+* Step 4: Check if the user was assigned a new task.
+* Step 5: Check if the deadlines are approaching.
 
+## Primary Postconditions
+* Postcondition 1: The changes will be pushed as a notification to the user.
 
-15.Real-Time notifications
-	*
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
