@@ -544,6 +544,45 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+## USE CASE DESCRIPTIONS
+
+Product Name: Task Managerinator
+
+Problem Statement: The project allows users to manage a set of tasks and be able to collaborate and share tasks with other users.
+
+Use Case Name: Add readme to projects
+
+Date: 17 May, 2021
+
+## Summary
+The user can add a readme text to every project with the description of what the project does and important notes. It will allow user to keep track of the content of every project. 
+
+## Actors
+* Customers/Users
+* System software
+
+## Preconditions
+* Precondition 1: The user must be logged in to their acount.
+* Precondition 2: The user should have at least one predefined project.
+* Precondition 3: The user should add a description of what the project is about in the text field named readme to store it in the data base.
+* Precondition 4: The user should click 'Add README' button.
+
+## Triggers
+* When the user clicks 'Add README' button associated with the project.
+
+## Primary Sequence
+* Step 1: Check if the user has successfully logged into their account.
+* Step 2: Check if the user has a project defined.
+* Step 3: Check if the user has entered a valid text within the maximun characters provided.
+* Step 4: Add the description to the data base to store it with the project.
+
+## Primary Postconditions
+* Postcondition 1: The associated project will have a read me section which describes the project.
+
+## Alternate Sequence
+NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -554,8 +593,7 @@ NO  ALTERNATE SEQUENCE FOR THIS TASK SET.
 
 
 
-14.Add readme to projects
-	*
+
 
 15.Real-Time notifications
 	*
