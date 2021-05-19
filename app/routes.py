@@ -177,6 +177,8 @@ def delete_project(project_id):
     print(project)
     tasks = Tasks.query.filter_by(project = project_id)
     for task in tasks:
+        notification = Notification.query.filter_by(message = "Task " + task.task + " is due", task_id = task.id).first()
+        db.session.delete(notification)
         db.session.delete(task)
         db.session.commit()
     db.session.delete(project)
@@ -226,9 +228,11 @@ def project_home(project_id):
 				flash('Due date is in the wrong format')
 			else:
 				task = Tasks(task = form.task.data, priority = 1,project=project_id, user_id = current_user.id, due_date = date_time_obj, user = current_user.username, completed = False)
-				notification = Notification(user_id=current_user.id,due_date=date_time_obj,message="Task " + form.task.data + " is due",meeting=False)
-				db.session.add(notification)
 				db.session.add(task)
+				db.session.commit()
+				notification = Notification(user_id=current_user.id,due_date=date_time_obj,message="Task " + form.task.data + " is due",meeting=False, task_id = task.id)
+				print(notification.task_id)
+				db.session.add(notification)
 				db.session.commit()
 #	tasks = []
 	tasks = Tasks.query.filter_by(project = project_id)
@@ -244,7 +248,10 @@ def project_home(project_id):
 def delete_task(task_id, project_id):
 	print(project_id)
 	task = Tasks.query.filter_by(id = task_id, project = project_id).first()
+	notification = Notification.query.filter_by(message = "Task " + task.task + " is due", task_id = task.id).first()
+	print(notification)
 	if task is not None:
+		db.session.delete(notification)
 		db.session.delete(task)
 		db.session.commit()
 
@@ -328,6 +335,8 @@ def all_tasks():
 def deletedCompleted():
 	tasks = Tasks.query.filter_by(completed = True)
 	for task in tasks:
+		notification = Notification.query.filter_by(message = "Task " + task.task + " is due", task_id = task.id).first()
+		db.session.delete(notification)
 		db.session.delete(task)
 		db.session.commit()
 		print("deleted: ", task)
