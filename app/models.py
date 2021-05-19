@@ -63,7 +63,7 @@ class Tasks(db.Model):
     def set_due_date(self, due_date):
         self.due_date = due_date
 
-        
+
 class Notification(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
@@ -75,8 +75,7 @@ class Notification(db.Model):
 
     def __repr__(self):
         return str(self.due_date)
-        
-
+      
 class Schedule(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.String(200))
