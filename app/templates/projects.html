@@ -2,27 +2,44 @@
 
 {% block content %}
 	<body class="mt-5 pt-5">
-   <div> <h1>Welcome, {{ current_user.username }} </h1> </div>
-   <h2>Current Projects</h2>
-	<div class="list_group">
-   {% for task in project_list %}
-   <div class="p-2">
-		{% if loop.index is divisibleby(2)%}
-      		 <a href="/home/{{task.id}}" class="list-group-item list-group-item-action list-group-item-primary"> {{ task.project_name }}  </a>
-   		{% else %}
-			 <a href="/home/{{task.id}}" class="list-group-item list-group-item-action list-group-item-warning"> {{ task.project_name }}  </a>
-		{% endif %}
-	</div>
-   {% endfor %}
-	</div>
-   <form action="" method="post" novalidate>
-       {{ form.hidden_tag() }}
-       <p>
-           {{ form.project.label }}<br>
-           {{ form.project(size=128) }}
-       </p>
-       <p>{{ form.submit() }}</p>
-   </form><br>
-	<button class="btn btn-info" onclick="location.href ='/allTasks'" type="button">View All Tasks</button>
+    <div style="float:left">
+        <div> <h1>Welcome, {{ current_user.username }} </h1> </div>
+        <h2>Current Projects</h2>
+        {% for task in project_list %}
+        <div>
+            <a href="/home/{{task.id}}"> {{ task.project_name }}  </a>
+        </div>
+        {% endfor %}
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.project.label }}<br>
+                {{ form.project(size=128) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form><br>
+        
+    </div>
+        <div style="height:120px;width:400px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+
+            
+            {% for notification in notification_list %}
+                {% if notification.meeting == true %}
+                    <div>
+                        {{notification.start_time ~ "-" ~ notification.due_date ~ "   " ~ notification.message}}        
+                    </div>
+                {% else %}
+                     <div>
+                        {{notification.due_date ~ '   ' ~ notification.message}}           
+                     </div>
+                {% endif %}
+
+                   
+
+            {% endfor %}
+
+           
+       
+
 	</body>
 {% endblock %}

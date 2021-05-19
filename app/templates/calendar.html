@@ -381,15 +381,42 @@
         });
         break;
       case "add-event":
-        document.getElementById(organizerId + "-add-event").addEventListener('click', function () {
-          startTime = prompt("Enter Start Time ", "");
-          endTime = prompt("Enter End Time ", "");
-          mTime = prompt("Enter AM/PM ", "");
-          text = prompt("Enter Text ", "");
-          var event = {startTime: startTime, endTime: endTime, mTime: mTime, text: text};
-          addEvent(event);
-          nextCallback();
-        });
+      document.getElementById(organizerId + "-add-event").addEventListener('click', function () {
+        
+        startTime = prompt("Enter Start Time ", "");
+        mTime = prompt("Enter AM/PM ", "");
+        endTime = prompt("Enter End Time ", "");
+        m2Time = prompt("Enter AM/PM ", "");
+        text = prompt("Enter Text ", "");
+        var event = {startTime: startTime, endTime: endTime, mTime: mTime, text: text};
+        addEvent(event);
+        nextCallback();
+        let date = {
+          start: startTime,
+          end: endTime,
+          m: mTime,
+          m2: m2Time,
+          message: text,
+          date: theOrganizer.calendar.date
+        }
+
+        
+
+        $.ajax({
+          type: "POST",
+          url: "{{ url_for('create_notification') }}",
+          contentType: "application/json",
+          data: JSON.stringify(date),
+          dataType: "json",
+          success: function(response) {
+              console.log(response);
+          },
+          error: function(err) {
+              console.log(err);
+        }
+      })
+      });
+      break;
         break;
     }
   };
