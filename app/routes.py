@@ -12,7 +12,9 @@ from app import db
 from app.forms import LoginForm, RegisForm, ProjectForm, TaskForm, ChangePasswordForm, DeleteAccountForm, ReassignedTask
 
 
+
 from app.models import User, Tasks, Project, Schedule, Notification
+
 
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
@@ -139,6 +141,7 @@ def create_notification():
     return ""
 
 
+
 #project page
 @myapp_obj.route("/home", methods =["GET", "POST"])
 @login_required
@@ -147,6 +150,7 @@ def home():
 		notification_list = Notification.query.filter(((Notification.due_date) <= (datetime.now()+timedelta(hours=48))))
 	else:
 		notification_list = []
+
 	form = ProjectForm()
 	if form.validate_on_submit():
 		project_id = str(uuid.uuid4())
@@ -180,6 +184,7 @@ def delete_project(project_id):
     message = "Deleted " + project.project_name
     flash(message)
     return redirect(url_for('home'))
+
 
 
 
@@ -297,6 +302,7 @@ def reassign_task(task_id, project_id):
 			print(user,task)
 			task.user_id = user.id
 			task.user = user.username
+
 			db.session.add(task)
 			db.session.commit()
 		else:
