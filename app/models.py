@@ -73,6 +73,8 @@ class Notification(db.Model):
     ## true if both times should be show, not if jusst one
     meeting = db.Column(db.Boolean)
 
+    task_id = db.Column(db.Integer, db.ForeignKey('tasks.id'))
+
     def __repr__(self):
         return str(self.due_date)
       

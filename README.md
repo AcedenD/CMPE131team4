@@ -80,18 +80,43 @@ The tools were used to view the database items:
 ## Use Cases
  
 - 1.Create account
+	* When user first come on the app, they will not be able to sign in since they don't have an account.
+	* User then can press on the Sign Up button, fill in the information and press Sign Up to create an account.
 - 2.Create project
 - 3.Create task
+	* After clicking on a project from the home page, user will be met with a rask form and a black table.
+	* User then can type in the task, due date and press add task to add the task. The page will reload and the table now should have that task.
 - 4.Central Calender
 - 5.Track online time
 - 6.User able to change password
+	* In the UserSetting, user have the option to change their password.
+	* When clicked on the change password, user will be met with a form with 3 inputs on it.
+	* User then must enter in their current password, new password and new password confirmation.
+	* If the old password match with the current password and new password match with new password confirmation, and when they press change password.
+	* The page will reload and their password sucessfully change.
 - 7.Delete User Account
+	* In the UserSetting, user have the option to delete account
+	* When clicked on the delete account, user will be redirected to a page with a from with 2 inputs on it.
+	* The user will enter their current password in the first input and enter it again for the second input.
+	* If the two input match with the current password when user press the delete account forever button, they will be redirect to the login page with a message that the account deleted successfully. 
 - 8.Set priority for task
+	* When user want to change the priority of a task, on the tasks page, user can click on prioritized task
+	* If the current priority is 1 then it will change to 3, be red and bold.
+	* If the current priority is 3 then it will change to 1 and return to black and unbold.
 - 9.Delete Task
+	* When user want to delete a task,on the tasks page, they can press the delete task button, the page will reload with the updated table of tasks.
 - 10.User reassign task
+	* If user want to reasssign a task to another user, they can choose the task that they  want to reassign on the tasks page
+	* Type in the user that they want to reassign to and press reassign task.
+	* If the entered user exist, the task will be reassign to them and the table will update
+	* If the entered user doesn't exist, the page will give an message that user doesn't exit
 - 11.Create multiple projects
 - 12.View all tasks page
+	* On the home page, in addition to showing all the projects, there is a button where user can click on and be redirected to a page with all the current tasks.
 - 13.Delete all completed tasks
+	* On the view all tasks page, user have the option to delete all completed tasks.
+	* When user click on the delete all completed tasks, for all of the tasks that are marked completed = True, those will be deleted. 
+	* The view all tasks will reload and now should only show incompleted tasks
 - 14.Add readme to projects
 - 15.Real-Time notifications
 
