@@ -70,10 +70,10 @@ def regis():
 			db.session.add(u)
 			db.session.commit()
 			flash('user added')
-			return redirect(url_for('login'))
+			#return redirect(url_for('login'))
 		else:
 			flash('user exist')
-			return redirect(url_for('login'))
+			#return redirect(url_for('login'))
 
 	return render_template('regis.html', title='Sign Up', form=form)
 
