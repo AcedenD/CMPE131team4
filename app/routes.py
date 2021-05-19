@@ -12,7 +12,7 @@ from app import db
 from app.forms import LoginForm, RegisForm, ProjectForm, TaskForm, ChangePasswordForm, DeleteAccountForm, ReassignedTask
 
 
-from app.models import User, Tasks, Project, Schedule
+from app.models import User, Tasks, Project, Schedule, Notification
 
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
@@ -92,10 +92,61 @@ def logout():
 	return redirect(url_for('login'))
 
 
+@myapp_obj.route("/notification", methods =["GET", "POST"])
+@login_required
+def create_notification():
+    req = request.get_json()
+    print(req)
+
+
+    hour_int = int(req["start"][0:2])
+    print(hour_int)
+    print(req["m"])
+    if req["m"] == "PM":
+        if hour_int <12:
+            hour = hour_int + 12
+        elif (hour_int == 12):
+            hour = hour_int
+    elif req["m"] == "AM":
+        if(hour_int == 12):
+            hour = 0
+        elif hour_int < 12:
+            hour = hour_int
+
+    minutes = req["start"][3:5]
+
+    date_time_start = req['date'][0:10] + " " + str(hour) + ":" + minutes + ":00"
+    date_time_obj_start = datetime.strptime(date_time_start, '%Y-%m-%d %H:%M:%S')
+
+    if req["m2"] == "PM":
+        if hour_int <12:
+            hour = hour_int + 12
+        elif (hour_int == 12):
+            hour = hour_int
+    elif req["m2"] == "AM":
+        if(hour_int == 12):
+            hour = 0
+        elif hour_int < 12:
+            hour = hour_int
+
+    date_time_end = req['date'][0:10] + " " + str(hour) + ":" + minutes + ":00"
+    date_time_obj_end = datetime.strptime(date_time_end, '%Y-%m-%d %H:%M:%S')
+
+    notification = Notification(user_id = current_user.id, start_time = date_time_obj_start,due_date=date_time_obj_end,message=req["message"],meeting= True)
+    db.session.add(notification)
+    db.session.commit()
+
+    return ""
+
+
 #project page
 @myapp_obj.route("/home", methods =["GET", "POST"])
 @login_required
 def home():
+	if(len(Notification.query.all()) > 0):
+		notification_list = Notification.query.filter(((Notification.due_date) <= (datetime.now()+timedelta(hours=48))))
+	else:
+		notification_list = []
 	form = ProjectForm()
 	if form.validate_on_submit():
 		project_id = str(uuid.uuid4())
@@ -112,7 +163,26 @@ def home():
 		new_p["project_name"] = p.project_name
 		project_list.append(new_p)
 
-	return render_template('projects.html',project_list = project_list, form = form)
+	return render_template('projects.html',project_list = project_list, form = form, notification_list = notification_list)
+
+# delete project
+@myapp_obj.route("/deleteProject/<project_id>", methods =["GET", "POST"])
+@login_required
+def delete_project(project_id):
+    project = Project.query.filter_by(id = project_id).first()
+    print(project)
+    tasks = Tasks.query.filter_by(project = project_id)
+    for task in tasks:
+        db.session.delete(task)
+        db.session.commit()
+    db.session.delete(project)
+    db.session.commit()
+    message = "Deleted " + project.project_name
+    flash(message)
+    return redirect(url_for('home'))
+
+
+
 
 #show time log
 @myapp_obj.route("/time", methods =["GET", "POST"])
@@ -145,13 +215,14 @@ def project_home(project_id):
 		if form.task.data is None:
 			print('empty')
 		else:
-			print('test2')
 			try:
 				date_time_obj = datetime.strptime(form.due_date.data, '%m/%d/%Y')
 			except ValueError:
 				flash('Due date is in the wrong format')
 			else:
 				task = Tasks(task = form.task.data, priority = 1,project=project_id, user_id = current_user.id, due_date = date_time_obj, user = current_user.username, completed = False)
+				notification = Notification(user_id=current_user.id,due_date=date_time_obj,message="Task " + form.task.data + " is due",meeting=False)
+				db.session.add(notification)
 				db.session.add(task)
 				db.session.commit()
 #	tasks = []
