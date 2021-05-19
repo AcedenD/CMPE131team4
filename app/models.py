@@ -5,12 +5,16 @@ from datetime import datetime
 from app import login
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from sqlalchemy.sql import func
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, nullable=False, unique=False)
     email = db.Column(db.String(32), unique=True, nullable=False, index=True)
     password = db.Column(db.String(200), unique=False)
+    last_login = db.Column(db.DateTime, nullable=True)
+    last_logout = db.Column(db.DateTime, nullable=True)
+
 
     tasks = db.relationship('Tasks', backref='author', lazy='dynamic')
 
@@ -45,6 +49,9 @@ class Tasks(db.Model):
     completed = db.Column(db.Boolean)
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user = db.Column(db.String)
+
+    completed = db.Column(db.Boolean)
 
     def __repr__(self):
         user = User.query.filter_by(id = self.user_id).first()
@@ -56,6 +63,7 @@ class Tasks(db.Model):
     def set_due_date(self, due_date):
         self.due_date = due_date
 
+        
 class Notification(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
@@ -68,6 +76,17 @@ class Notification(db.Model):
     def __repr__(self):
         return str(self.due_date)
         
+
+class Schedule(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.String(200))
+    login = db.Column(db.DateTime)
+    logout = db.Column(db.DateTime)
+    total_time = db.Column(db.Interval)
+
+    def __repr__(self):
+        return f'{self.login} {self.total_time}'
+
 
 
 

@@ -9,10 +9,10 @@ from datetime import datetime, timedelta
 from app import myapp_obj
 from app import db
 
-from app.forms import LoginForm, RegisForm, ProjectForm, TaskForm, ChangePasswordForm, DeleteAccountForm
+from app.forms import LoginForm, RegisForm, ProjectForm, TaskForm, ChangePasswordForm, DeleteAccountForm, ReassignedTask
 
 
-from app.models import User, Tasks, Project, Notification
+from app.models import User, Tasks, Project, Notification, Schedule
 
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
@@ -34,7 +34,11 @@ def login():
         # let flask_login library know what user logged int
         # it also means that their password was correct
 		login_user(user, remember=form.remember_me.data)
-
+		current_t = datetime.utcnow()
+		current_user.last_login = current_t - timedelta(microseconds=current_t.microsecond)
+		db.session.add(current_user)
+		db.session.commit()
+		print(current_user.last_login)
         # return to page before user got asked to login
         # for example, if user tried to access a wedpage called profile, but since they
         # weren't logged in they would get redirected to login page. After they log in
@@ -53,12 +57,13 @@ def login():
 @myapp_obj.route("/regis", methods=['GET','POST'])
 def regis():
 	if current_user.is_authenticated:
-		return "<h1>you already logged in</h1>" 
+		return "<h1>you already logged in</h1>"
 	form = RegisForm()
 	if form.validate_on_submit():
 		user = User.query.filter_by(username=form.username.data).first()
 		if user is None:
 			u = User(username=form.username.data, email=form.email.data)
+			#u.last_login = datetime.utcnow()
 			u.set_password(password=form.password.data)
 			db.session.add(u)
 			db.session.commit()
@@ -74,23 +79,20 @@ def regis():
 @myapp_obj.route('/logout')
 @login_required
 def logout():
+	current_t = datetime.utcnow()
+	current_user.last_logout = current_t - timedelta(microseconds=current_t.microsecond)
+	print("logout at: ", current_user.last_logout)
+	print("login at: ", current_user.last_login)
+	print("session time: ", current_user.last_logout- current_user.last_login)
+	schedule = Schedule(user_id=current_user.id, total_time=(current_user.last_logout - current_user.last_login),login=current_user.last_login,logout=current_user.last_logout)
+	db.session.add(schedule)
+	db.session.commit()
+
 	logout_user()
 	return redirect(url_for('login'))
 
 
-@myapp_obj.route("/req")
-# user needs to be logged in to see this page
-# needs to be user route!
-@login_required
-# called view function
-def req():
-	return render_template('testReq.html')
 
-
-@myapp_obj.route("/main_hidden_test")
-@login_required
-def main():
-	return render_template('main.html')
 
 @myapp_obj.route("/notiication", methods =["GET", "POST"])
 @login_required
@@ -145,6 +147,7 @@ def create_notification():
 
 	return ""
 
+
 #project page
 @myapp_obj.route("/home", methods =["GET", "POST"])
 @login_required
@@ -163,7 +166,7 @@ def home():
 		db.session.add(project)
 		db.session.commit()
 		project_home(project_id)
-		
+
 	project_list = []
 
 	for p in Project.query.all():
@@ -174,9 +177,22 @@ def home():
 
 	return render_template('projects.html',project_list = project_list, form = form, notification_list=notification_list)
 
-
-
-
+#show time log
+@myapp_obj.route("/time", methods =["GET", "POST"])
+@login_required
+def timetracker():
+	form = ProjectForm()
+	print(current_user.last_login)
+	schedule_list = Schedule.query.filter_by(user_id = current_user.id)
+	if schedule_list.first() is None:
+		return render_template('time.html',schedule_list = schedule_list)
+	else:
+		total_t = schedule_list.first().total_time
+		for time in schedule_list:
+			total_t = total_t + time.total_time
+		total_t -= schedule_list.first().total_time
+		#print(total_t)
+		return render_template('time.html',schedule_list = schedule_list, total_t = total_t)
 
 
 
@@ -184,10 +200,11 @@ def home():
 @myapp_obj.route("/home/<project_id>", methods =["GET", "POST"])
 @login_required
 def project_home(project_id):
+	reassign = ReassignedTask()
 	form = TaskForm()
 	print(current_user)
 	if form.validate_on_submit():
-		print('test1')
+
 		if form.task.data is None:
 			print('empty')
 		else:
@@ -196,19 +213,122 @@ def project_home(project_id):
 			task = Tasks(task = form.task.data, priority = 1,project=project_id, user_id = current_user.id, due_date = date_time_obj, user = current_user.username, completed = False)
 			notification = Notification(user_id=current_user.id,due_date=date_time_obj,message="Task " + form.task.data + " is due",meeting=False)
 			db.session.add(notification)
+
+			try:
+				date_time_obj = datetime.strptime(form.due_date.data, '%m/%d/%Y')
+			except ValueError:
+				flash('Due date is in the wrong format')
+			else:
+				task = Tasks(task = form.task.data, priority = 1,project=project_id, user_id = current_user.id, due_date = date_time_obj, user = current_user.username, completed = False)
+				db.session.add(task)
+				db.session.commit()
+#	tasks = []
+	tasks = Tasks.query.filter_by(project = project_id)
+	print('project: ', project_id )
+	current_project =  Project.query.filter_by(id = project_id).first().project_name
+
+	return render_template('project_home.html',tasks = tasks, form = form, reassign = reassign, current_project = current_project)
+
+
+# detele task
+@myapp_obj.route("/deleteTask/<task_id>/<project_id>", methods =["GET", "POST"])
+@login_required
+def delete_task(task_id, project_id):
+	print(project_id)
+	task = Tasks.query.filter_by(id = task_id, project = project_id).first()
+	if task is not None:
+		db.session.delete(task)
+		db.session.commit()
+
+	return redirect(url_for('project_home', project_id = project_id))
+
+
+#prioritize task
+@myapp_obj.route("/prioritizeTask/<task_id>/<project_id>", methods =["GET", "POST"])
+@login_required
+def change_priority(task_id, project_id):
+    print(project_id)
+    task = Tasks.query.filter_by(id = task_id, project = project_id).first()
+    if task is not None:
+        if task.priority == 1:
+           task.priority = 3
+           db.session.add(task)
+           db.session.commit()
+        else:
+           task.priority = 1
+           db.session.add(task)
+           db.session.commit()
+
+    return redirect(url_for('project_home', project_id = project_id))
+
+
+#complete task
+@myapp_obj.route("/completeTask/<task_id>/<project_id>", methods =["GET", "POST"])
+@login_required
+def complete_task(task_id, project_id):
+    print(project_id)
+    task = Tasks.query.filter_by(id = task_id, project = project_id).first()
+    if task is not None:
+        if task.completed == False:
+           task.completed = True
+           db.session.add(task)
+           db.session.commit()
+        else:
+           task.completed = False
+           db.session.add(task)
+           db.session.commit()
+
+
+    return redirect(url_for('project_home', project_id = project_id))
+
+
+#reassign task
+@myapp_obj.route("/reassignedTask/<task_id>/<project_id>", methods =["GET", "POST"])
+@login_required
+def reassign_task(task_id, project_id):
+	reassign = ReassignedTask()
+	if reassign.validate_on_submit():
+		user = User.query.filter_by(username = reassign.user.data).first()
+		if user is not None:
+			task = Tasks.query.filter_by(id = task_id, project = project_id).first()
+			print(user,task)
+			task.user_id = user.id
+			task.user = user.username
+
 			db.session.add(task)
 			db.session.commit()
-	tasks = []
-	print('test')
+		else:
+			flash('enter an existing user')
 
-	for t in Tasks.query.filter_by(project=project_id).all():
-		user = User.query.filter_by(id = t.user_id).first()
-		new_t = {}
-		new_t['user'] = user.username
-		new_t['task'] = t.task
-		new_t['dueDate'] = t.due_date.date()
-		tasks.append(new_t)
-	return render_template('project_home.html',tasks = tasks, form = form)
+	return redirect(url_for('project_home', project_id = project_id))
+
+
+
+
+# all tasks page
+@myapp_obj.route("/allTasks", methods =["GET", "POST"])
+@login_required
+def all_tasks():
+    tasks = Tasks.query.all()
+    return render_template('all_task.html', tasks = tasks)
+
+
+
+#delete all completed tasks
+@myapp_obj.route("/deleteCompleted", methods =["GET", "POST"])
+@login_required
+def deletedCompleted():
+	tasks = Tasks.query.filter_by(completed = True)
+	for task in tasks:
+		db.session.delete(task)
+		db.session.commit()
+		print("deleted: ", task)
+
+	tasks = Tasks.query.all()
+	return render_template('all_task.html', tasks = tasks)
+
+
+
 
 # calendar page
 @myapp_obj.route("/calendar", methods =["GET", "POST"])
@@ -223,8 +343,6 @@ def calendar():
 @myapp_obj.route("/userSetting")
 @login_required
 def user_setting():
-	print(current_user)
-	print(current_user.id)
 	return render_template('userSetting.html')
 
 

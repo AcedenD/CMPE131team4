@@ -3,7 +3,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <head>
-  <link rel="stylesheet" href="calendar.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='calendar.css') }}">
 </head>
 <div class="wrapper">
   <div id="calendarContainer"></div>
@@ -421,7 +421,7 @@
     }
   };
 
-  var calendar = new Calendar("calendarContainer", "small", ["Sunday", 3], ["#e91e63", "#c2185b", "#ffffff", "#f8bbd0"]);
+  var calendar = new Calendar("calendarContainer", "small", ["Sunday", 3], ["#c3d2d6", "#c3d2d6", "#ffffff", "#050505"]);
   var organizer = new Organizer("organizerContainer", calendar);
   var data = {
       years: [
@@ -434,7 +434,6 @@
                 {
                   int: (calendar.date.getDate()),
                   events: [
-                    
                   ]
                 }
               ]

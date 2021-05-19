@@ -8,6 +8,10 @@
 
 <style>
 
+	*{
+		font-family: 'Times New Roman' ;
+	}
+	
     #navBar{
         background-color: #0055A2 ;
     }
@@ -17,16 +21,17 @@
         top: 0; /* Position the navbar at the top of the page */
         width: 100%; /* Full width */
     }
-
+	
+	
 
 
 </style>
 
 <html>
-
+	
     <nav  class="navbar navbar-light" id="navBar">
     <a class="navbar-brand" onclick="location.href ='/home'" >
-        <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/San_Jose_State_Spartans_logo.svg/1200px-San_Jose_State_Spartans_logo.svg.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
     </a>
 
     <form class="d-flex" >
@@ -35,7 +40,11 @@
             <img width="50" height="30" class="d-inline-block align-top m-2 " alt="Logout">
         </a>
         </div>
-
+		<div class='pr-2'>
+        <a onclick="location.href ='/calendar'"  class="btn btn-primary">
+            <img width="80" height="30" class="d-inline-block align-top m-2 " alt="Calendar">
+        </a>
+        </div>
         <div class='pr-2'>
         <a onclick="location.href='/userSetting'"  class="btn btn-primary" >
             <img width="80" height="30" class="d-inline-block align-top m-2 " alt="User Setting">
@@ -51,12 +60,14 @@
         <title>Home Page - my blog</title>
         {% endif %}
     </head>
-    <body class="mt-5 pt-5">
+	<div class="m-4 p-2 container-md">
+    <body class="mt-4 pt-4 text-center">
+		<body class="bg-image" style="background-image: url('https://img.wallpapersafari.com/desktop/1920/1080/51/82/RP4fIq.jpg')" height: "100vh">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
             {% for message in messages %}
-            <li>{{ message }}</li>
+			<li> <p class="text-danger"><b>{{ message }}</b></p></li>
             {% endfor %}
         </ul>
         {% endif %}
@@ -65,5 +76,6 @@
         {% block content %}
         {% endblock %}
     </body>
+	</div>
 </html>
 
