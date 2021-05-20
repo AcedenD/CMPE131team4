@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='note.css') }}">
+  </head>
+ <div class="readme">
+    <h1>Add Note</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.note_title.label }}<br>
+            {{ form.note_title(size = 30) }}
+        </p>
+        <p>
+            {{ form.note_content.label }}<br>
+            {{ form.note_content(size=100) }}
+        </p>
+        <p>
+            <input type = "submit" name = "Add note" value = "Add note">
+            <input type = "submit" name = "Delete note" value = "Delete note">
+        </p>
+    </form>  
+ </div>
+ <div>
+    <h1>Note</h1>
+    {% for note in posts %}
+        <p><strong>{{ note.title }}</strong>: {{ note.content}} </p>
+    {% endfor %}
+ </div>
+{% endblock %}

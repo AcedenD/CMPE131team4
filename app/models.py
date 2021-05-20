@@ -17,7 +17,7 @@ class User(UserMixin, db.Model):
 
 
     tasks = db.relationship('Tasks', backref='author', lazy='dynamic')
-    readme = db.relationship('Readme', backref='author', lazy='dynamic')
+    addnote = db.relationship('Addnote', backref='author', lazy='dynamic')
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -76,7 +76,7 @@ class Notification(db.Model):
 
     def __repr__(self):
         return str(self.due_date)
-
+      
 class Schedule(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.String(200))
@@ -87,18 +87,18 @@ class Schedule(db.Model):
     def __repr__(self):
         return f'{self.login} {self.total_time}'
 
-class Readme(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+class Addnote(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    readme = db.Column(db.String(150), unique = False, nullable = True)
-    
+    note_title = db.Column(db.String(100), unique = False, nullable = False)
+    note_content =  db.Column(db.String(250), unique = False, nullable = False)   
+
     def __repr__(self):
-        return f'README: \n {self.readme}'
+        return f'{self.note_title}'
 
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
-
 
 db.create_all()
 db.session.commit()

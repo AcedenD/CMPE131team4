@@ -39,7 +39,9 @@ class DeleteAccountForm(FlaskForm):
 	password_confirm = StringField('Current Password Confirm', validators=[DataRequired()])
 	submit = SubmitField('DELETE ACCOUNT FOREVER')
 
-class ReadmeForm(FlaskForm):
-	readme = StringField('ADD README? (150 Characters)')
-	submit = SubmitField('ADD README')
-	submit_delete = SubmitField('DELETE')
+class AddnoteForm(FlaskForm):
+    note_title = StringField('Title')
+    note_content = StringField('Content')    
+    submit = SubmitField('Add note')
+    delete = SubmitField('Delete note')
+
