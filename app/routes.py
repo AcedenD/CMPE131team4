@@ -406,8 +406,9 @@ def add_readme():
 		
 		if 'DELETE README' in request.form:
 			readme = Readme.query.first()
-			db.session.delete(readme)
-			db.session.commit()
+			if readme is not None:
+				db.session.delete(readme)
+				db.session.commit()
 
 
 	readme_list = []
