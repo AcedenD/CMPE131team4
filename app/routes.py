@@ -9,11 +9,12 @@ from datetime import datetime, timedelta
 from app import myapp_obj
 from app import db
 
-from app.forms import LoginForm, RegisForm, ProjectForm, TaskForm, ChangePasswordForm, DeleteAccountForm, ReassignedTask
+
+from app.forms import LoginForm, RegisForm, ProjectForm, TaskForm, ChangePasswordForm, DeleteAccountForm, ReassignedTask, AddnoteForm, ReadmeForm
 
 
 
-from app.models import User, Tasks, Project, Schedule, Notification
+from app.models import User, Tasks, Project, Schedule, Notification, Addnote, Readme
 
 
 
@@ -187,10 +188,6 @@ def delete_project(project_id):
     flash(message)
     return redirect(url_for('home'))
 
-
-
-
-
 #show time log
 @myapp_obj.route("/time", methods =["GET", "POST"])
 @login_required
@@ -234,6 +231,7 @@ def project_home(project_id):
 				print(notification.task_id)
 				db.session.add(notification)
 				db.session.commit()
+
 #	tasks = []
 	tasks = Tasks.query.filter_by(project = project_id)
 	print('project: ', project_id )
@@ -248,9 +246,9 @@ def project_home(project_id):
 def delete_task(task_id, project_id):
 	print(project_id)
 	task = Tasks.query.filter_by(id = task_id, project = project_id).first()
-	notification = Notification.query.filter_by(message = "Task " + task.task + " is due", task_id = task.id).first()
-	print(notification)
 	if task is not None:
+		notification = Notification.query.filter_by(message = "Task " + task.task + " is due", task_id = task.id).first()
+		print(notification)
 		db.session.delete(notification)
 		db.session.delete(task)
 		db.session.commit()
@@ -317,8 +315,32 @@ def reassign_task(task_id, project_id):
 
 	return redirect(url_for('project_home', project_id = project_id))
 
-
-
+#add note
+@myapp_obj.route("/addnote/<task_id>/<project_id>", methods =["GET", "POST"])
+@login_required
+def add_note(task_id, project_id):	
+	form = AddnoteForm()
+	user = User.query.filter_by(username=current_user.username).first()
+	if form.validate_on_submit():
+		if "Add note" in request.form:
+			addnote = Addnote(note_title = form.note_title.data, note_content = form.note_content.data, author=user)
+			db.session.add(addnote)
+			db.session.commit()
+			return redirect('/addnote/<task_id>/<project_id>')
+		if "Delete note" in request.form:
+			addnote = Addnote.query.first()
+			if addnote is not None:
+				db.session.delete(addnote)
+				db.session.commit()		
+	note = Addnote.query.filter_by(user_id = user.id).all()	
+	#print(note)
+	listNote = []
+	for item in note:
+		listNote.append({
+            'title': item.note_title,
+            'content': item.note_content
+        })
+	return render_template('addnote.html', form = form, posts = listNote)
 
 # all tasks page
 @myapp_obj.route("/allTasks", methods =["GET", "POST"])
@@ -396,3 +418,39 @@ def delete_account():
 		else:
 			flash('Wrong password')
 	return render_template('deleteAccount.html', form = form)
+
+
+
+
+
+#README
+@myapp_obj.route('/readme', methods=['GET','POST'])
+@login_required
+def add_readme():
+	form = ReadmeForm()
+	user = User.query.filter_by(username=current_user.username).first()
+	if form.validate_on_submit():
+		if 'ADD README' in request.form:
+			readme = Readme(readme=form.readme.data, author=user)
+			db.session.add(readme)
+			db.session.commit()
+			return redirect ('/readme')
+		
+		if 'DELETE README' in request.form:
+			readme = Readme.query.first()
+			if readme is not None:
+				db.session.delete(readme)
+				db.session.commit()
+			else:
+				flash("README is empty")
+
+
+	readme_list = Readme.query.all()
+
+	#for r in Readme.query.filter_by(user_id = user.id).all():
+	#	new_r = {}
+	#	new_r["readme"] = r.readme
+	#	readme_list.append(new_r)
+
+	return render_template('readme.html', form=form, posts=readme_list)
+

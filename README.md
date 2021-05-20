@@ -78,7 +78,6 @@ The tools were used to view the database items:
 * https://inloop.github.io/sqlite-viewer/
 
 ## Use Cases
- 
 - 1.Create account
 	* When user first come on the app, they will not be able to sign in since they don't have an account.
 	* User then can press on the Sign Up button, fill in the information and press Sign Up to create an account.
@@ -134,7 +133,13 @@ The tools were used to view the database items:
 	* User can click on it to delete the whole project and every tasks that are in it. !!! This action can't be undo !!!
 - 15.Real-Time notifications
 	* On the home page, at the bottom of the project list, user will see a box of notification that a certain task are almost due.
-	* This will automatically update when user create a new task or delete one. The notification for the task will only show up if the task is due within 2 days.
+	* This will automatically update when user create a new task or delete one. The notification for the task will only show up if the task is due within 2 
+- 16.Readme for the project
+	* User can create a README for a project, but clicking on the README button on top of the tasks page.
+	* In here user can add any addition information that they want to the project.
+- 17. Add Note to task
+	* For any of the task, user can add a Note to it.
+	* On the table of tasks, user can press on Note and it will lead them to a page where they can add some note about teh task.
 ## Navigating through project and how to use the app
 
 First time users should follow these steps to better understand the app and get familiar:

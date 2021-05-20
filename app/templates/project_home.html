@@ -40,6 +40,7 @@
 					<button class="btn btn-warning" onclick="location.href ='/prioritizeTask/{{task.id}}/{{task.project}}'" type="button">Prioritize Task</button>
 					<button class="btn btn-success" onclick="location.href ='/completeTask/{{task.id}}/{{task.project}}'" type="button">Complete Task</button>
 					<button class="btn btn-danger" onclick="location.href ='/deleteTask/{{task.id}}/{{task.project}}'" type="button">Delete Task</button>
+					<button class="btn btn-info" onclick="location.href ='/addnote/{{task.id}}/{{task.project}}'" type="button">Add note</button>
 					<form action="/reassignedTask/{{task.id}}/{{task.project}}" method="post">
 						{{ reassign.hidden_tag() }}
        					 <p>
@@ -51,8 +52,10 @@
 				</td>
     		</tr>
 		</tbody>
-		{% endfor %}
-
+		
+		{% endfor %}		
+	<button class="btn btn-success" onclick="location.href = '/readme'" type="button"> README </button>
+	
 	<form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
@@ -63,8 +66,12 @@
 			{{ form.due_date.label}}<br>
 			{{ form.due_date(size=128)}}
 		</p>
+		<p>
+		</p>
         <p>{{ form.submit() }}</p>
     </form><br>
+		
+
 	</body>
 
 {% endblock %}
