@@ -137,7 +137,7 @@ The tools were used to view the database items:
 - 16.Readme for the project
 	* User can create a README for a project, but clicking on the README button on top of the tasks page.
 	* In here user can add any addition information that they want to the project.
-- 17. Add Note to task
+- 17.Add Note to task
 	* For any of the task, user can add a Note to it.
 	* On the table of tasks, user can press on Note and it will lead them to a page where they can add some note about teh task.
 ## Navigating through project and how to use the app
