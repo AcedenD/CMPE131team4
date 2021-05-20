@@ -403,7 +403,11 @@ def add_readme():
 			db.session.add(readme)
 			db.session.commit()
 			return redirect ('/readme')
-
+		
+		if 'DELETE README' in request.form:
+			readme = Readme.query.first()
+			db.session.delete(readme)
+			db.session.commit()
 
 
 	readme_list = []
