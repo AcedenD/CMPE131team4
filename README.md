@@ -83,15 +83,21 @@ The tools were used to view the database items:
 	* When user first come on the app, they will not be able to sign in since they don't have an account.
 	* User then can press on the Sign Up button, fill in the information and press Sign Up to create an account.
 - 2.Create project
+	* Once the user logged in, they will reach the home page. 
+	* Depending on if there are any current projects, those will show up
+	* If there isn't any projects then user can enter in a project name in to the input, and press create project.
+	* The page will reload with the updated list of projects.
 - 3.Create task
 	* After clicking on a project from the home page, user will be met with a rask form and a black table.
 	* User then can type in the task, due date and press add task to add the task. The page will reload and the table now should have that task.
-- 4.Central Calender
+- 4.Central Calendar
+	* For the central calendar, user are able to add note and time for any days.
+	* Sadly, when we refresh the page, the note is gone.
 - 5.Track online time
-	* The user should go to user setting in the navigation bar on top-right corner of every page.
-	* The user should click the time log button - third on the list.
-	* The user will be able to see their login time - the time stamp when they logged in, and log out time - the time when they logged out of the account, along with the total time worked which is calculated as a difference between the log in time and the log out time to show the user how long they worked online.
-	* The user must login and logout at least once before they can see their times stamps on the list. First time users will see a blank list.
+	* In the UserSetting there is a time log, user can click on it to see their time log.
+	* If the user is a new user, then it will be blank, however once the user logout for the first time.
+	* When return to the page, user will see a time log with, login time, logout time and total time for the session.
+	* On the top, the user will see the total time they spend online. 
 - 6.User able to change password
 	* In the UserSetting, user have the option to change their password.
 	* When clicked on the change password, user will be met with a form with 3 inputs on it.
@@ -115,15 +121,20 @@ The tools were used to view the database items:
 	* If the entered user exist, the task will be reassign to them and the table will update
 	* If the entered user doesn't exist, the page will give an message that user doesn't exit
 - 11.Create multiple projects
+	* User is able to create multiple projects at once.
 - 12.View all tasks page
 	* On the home page, in addition to showing all the projects, there is a button where user can click on and be redirected to a page with all the current tasks.
+	* For each of the task, user can click on it and it will lead the user to the project page where the task is in.
 - 13.Delete all completed tasks
 	* On the view all tasks page, user have the option to delete all completed tasks.
-	* When user click on the delete all completed tasks, for all of the tasks that are marked completed = True, those will be deleted. 
+	* When user click on the delete all completed tasks, for all of the tasks that are marked completed = True, those will be deleted. !!! This action can't be undo !!! 
 	* The view all tasks will reload and now should only show incompleted tasks
-- 14.Add readme to projects
+- 14.Delete project/ all tasks that are in it
+	* On the home page, in addition to seeing a list of projects, user will also see a delete project button on the right of every project
+	* User can click on it to delete the whole project and every tasks that are in it. !!! This action can't be undo !!!
 - 15.Real-Time notifications
-
+	* On the home page, at the bottom of the project list, user will see a box of notification that a certain task are almost due.
+	* This will automatically update when user create a new task or delete one. The notification for the task will only show up if the task is due within 2 days.
 ## Navigating through project and how to use the app
 
 First time users should follow these steps to better understand the app and get familiar:
