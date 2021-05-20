@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<body class="mt-5 pt-5">
+   <div> <h1>Welcome, {{ current_user.username }} </h1> </div>
+   <h2>Current Projects</h2>
+	<div class="list_group">
+   {% for task in project_list %}
+   <div class="p-2 container-fluid">
+		{% if loop.index is divisibleby(2)%}
+      		 <a href="/home/{{task.id}}" class="list-group-item list-group-item-action list-group-item-primary"> {{ task.project_name }}  </a>
+		<div class="p-2 text-right">	
+			<button onclick="location.href='/deleteProject/{{ task.id }}'" class="btn btn-danger btn-sm">Delete Project {{ task.project_name }} </button>
+		</div>
+		{% else %}
+			 <a href="/home/{{task.id}}" class="list-group-item list-group-item-action list-group-item-warning"> {{ task.project_name }}  </a>
+		<div class="p-2 text-right">
+            <button onclick="location.href='/deleteProject/{{ task.id }}'" class="btn btn-danger btn-sm">Delete Project {{ task.project_name }} </button>
+        </div>
+		{% endif %}
+	</div>
+   {% endfor %}
+	</div>
+   <form action="" method="post" novalidate>
+       {{ form.hidden_tag() }}
+       <p>
+           {{ form.project.label }}<br>
+           {{ form.project(size=128) }}
+       </p>
+       <p>{{ form.submit() }}</p>
+   </form><br>
+	<button class="btn btn-info" onclick="location.href ='/allTasks'" type="button">View All Tasks</button>
+	
+	<div class="text-center" style="margin:auto ; text-align: center; height:120px;width:400px;color:red ;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+
+
+            {% for notification in notification_list %}
+                {% if notification.meeting == true %}
+                    <div>
+                        <p class="text-danger">{{notification.start_time ~ "-" ~ notification.due_date ~ "   " ~ notification.message}}</p>
+                    </div>
+                {% else %}
+                     <div>
+                        {{notification.due_date ~ '   ' ~ notification.message}}
+                     </div>
+                {% endif %}
+
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+
+	</body>
+{% endblock %}

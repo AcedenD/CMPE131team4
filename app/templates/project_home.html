@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<body class="mt-5 pt-5">
+    <h1>Current Tasks for {{ current_project }}</h1>
+	<table class="table">
+		<thead>
+			<tr class="text-center">
+      			<th scope="col">#</th>
+      			<th scope="col">User</th>
+      			<th scope="col">Task</th>
+      			<th scope="col">Due Date</th>
+				<th scope="col">Priority</th>
+				<th scope="col">Completed</th>
+				<th scope="col">Function</th>
+			</tr>
+		</thead>
+		 {% for task in tasks %}
+		<tbody>
+			<tr>
+      			<th scope="row">{{ loop.index }}</th>
+      			<td>{{ task.user }}</td>
+      			<td>{{ task.task}}</td>
+     		 	<td>{{ task.due_date }}</td>
+				{% if task.priority  == 3 %}
+					<td>
+						<p class="text-danger"><b>{{ task.priority }}</b></p>
+					</td>
+				{% else %}
+					<td>{{ task.priority }}</td>
+				{% endif %}
+				{% if task.completed  == True %}
+                    <td>
+                        <p class="text-success"><b>{{ task.completed }}</b></p>
+                    </td>
+                {% else %}
+                    <td>{{ task.completed }}</td>
+                {% endif %}
+				<td class="text-left">
+					<button class="btn btn-warning" onclick="location.href ='/prioritizeTask/{{task.id}}/{{task.project}}'" type="button">Prioritize Task</button>
+					<button class="btn btn-success" onclick="location.href ='/completeTask/{{task.id}}/{{task.project}}'" type="button">Complete Task</button>
+					<button class="btn btn-danger" onclick="location.href ='/deleteTask/{{task.id}}/{{task.project}}'" type="button">Delete Task</button>
+					<form action="/reassignedTask/{{task.id}}/{{task.project}}" method="post">
+						{{ reassign.hidden_tag() }}
+       					 <p>
+             				<h2>Reassign task to:</h2><br>
+            				{{ reassign.user(size=128) }}
+						</p>
+        				<p>{{ reassign.submit() }}</p>
+					</form>
+				</td>
+    		</tr>
+		</tbody>
+		{% endfor %}
+
+	<button class="btn btn-success" onclick="location.href = '/readme'" type="button"> README </button>
+
+	<form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.task.label }}<br>
+            {{ form.task(size=128) }}
+        </p>
+		<p>
+			{{ form.due_date.label}}<br>
+			{{ form.due_date(size=128)}}
+		</p>
+        <p>{{ form.submit() }}</p>
+    </form><br>
+
+	</body>
+
+{% endblock %}

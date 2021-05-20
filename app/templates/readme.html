@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2> README FOR THE PROJECT</h2>
+
+<form action="" method="POST">
+{{ form.hidden_tag() }}
+	<p>
+	{{ form.readme.label }} <br>
+	{{ form.readme(size=150) }}
+	</p>
+	<p>
+		<input type="submit" name="ADD README" value="ADD README">
+		<input type="submit" name="DELETE README" value="DELETE README">
+	</p>
+</form>
+<div>
+    <h1>README</h1>
+    {% for note in posts %}
+        <p><strong>{{ note.readme }}</strong> </p>
+    {% endfor %}
+ </div>
+
+{% endblock %}
