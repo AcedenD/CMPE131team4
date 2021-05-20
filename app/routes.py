@@ -40,10 +40,10 @@ def login():
         # weren't logged in they would get redirected to login page. After they log in
         # the user will be redirected to their previous request, which would be the profile
         # page in this case.
-		next_page = request.args.get('next')
-		if not next_page or url_parse(next_page).netloc != '':
+		#next_page = request.args.get('next')
+		#if not next_page or url_parse(next_page).netloc != '':
 			# project is a home page
-			next_page = url_for('home')
+		next_page = url_for('home')
 
 		return redirect(next_page)
 
@@ -93,7 +93,7 @@ def main():
 	return render_template('main.html')
 
 #project page
-@myapp_obj.route("/home", methods =["GET", "POST"])
+@myapp_obj.route("/", methods =["GET", "POST"])
 @login_required
 def home():
 	form = ProjectForm()
