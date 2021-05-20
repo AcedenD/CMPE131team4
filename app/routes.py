@@ -406,15 +406,18 @@ def add_readme():
 		
 		if 'DELETE README' in request.form:
 			readme = Readme.query.first()
-			db.session.delete(readme)
-			db.session.commit()
+			if readme is not None:
+				db.session.delete(readme)
+				db.session.commit()
+			else:
+				flash("README is empty")
 
 
-	readme_list = []
+	readme_list = Readme.query.all()
 
-	for r in Readme.query.filter_by(user_id = user.id).all():
-		new_r = {}
-		new_r["readme"] = r.readme
-		readme_list.append(new_r)
+	#for r in Readme.query.filter_by(user_id = user.id).all():
+	#	new_r = {}
+	#	new_r["readme"] = r.readme
+	#	readme_list.append(new_r)
 
 	return render_template('readme.html', form=form, posts=readme_list)
