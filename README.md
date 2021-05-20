@@ -83,13 +83,15 @@ The tools were used to view the database items:
 	* When user first come on the app, they will not be able to sign in since they don't have an account.
 	* User then can press on the Sign Up button, fill in the information and press Sign Up to create an account.
 - 2.Create project
-	* When a project is created a new route is made in /home/(id of project), this id is of course unique for each project
-	* After the route is created a button is made in the /home page that when clicked routes the user to that projects home directory
 - 3.Create task
 	* After clicking on a project from the home page, user will be met with a rask form and a black table.
 	* User then can type in the task, due date and press add task to add the task. The page will reload and the table now should have that task.
 - 4.Central Calender
 - 5.Track online time
+	* The user should go to user setting in the navigation bar on top-right corner of every page.
+	* The user should click the time log button - third on the list.
+	* The user will be able to see their login time - the time stamp when they logged in, and log out time - the time when they logged out of the account, along with the total time worked which is calculated as a difference between the log in time and the log out time to show the user how long they worked online.
+	* The user must login and logout at least once before they can see their times stamps on the list. First time users will see a blank list.
 - 6.User able to change password
 	* In the UserSetting, user have the option to change their password.
 	* When clicked on the change password, user will be met with a form with 3 inputs on it.
@@ -113,8 +115,6 @@ The tools were used to view the database items:
 	* If the entered user exist, the task will be reassign to them and the table will update
 	* If the entered user doesn't exist, the page will give an message that user doesn't exit
 - 11.Create multiple projects
-	* The process of making a project can be repeated multiple times, simply putting an ew name for a project on the /home page and clicking the create button 	another project will appear above any previous projects, you can then access it by clicking on i
-	* 
 - 12.View all tasks page
 	* On the home page, in addition to showing all the projects, there is a button where user can click on and be redirected to a page with all the current tasks.
 - 13.Delete all completed tasks
@@ -123,7 +123,6 @@ The tools were used to view the database items:
 	* The view all tasks will reload and now should only show incompleted tasks
 - 14.Add readme to projects
 - 15.Real-Time notifications
-	* Home page has a notification sector, their are two main ways for notifications to be made one is through the calendar, when you create an event in the calendar it sends an ajax request to the server which then makes a new notification sql object and stores it in the database, this is for meetings with two sets times and will appear as such on the Notifications screen (only displays events within 24 hours). The second is when creating a task the due date will be stored as a notification and will appear on the notification section with only the due date on it. 
 
 ## Navigating through project and how to use the app
 
